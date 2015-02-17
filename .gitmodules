@@ -1,0 +1,3 @@
+[submodule "s2s"]
+	path = s2s
+	url = https://github.com/tetherless-world/s2s

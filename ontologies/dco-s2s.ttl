@@ -1,0 +1,319 @@
+@prefix :        <http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#> .
+@prefix dc:      <http://purl.org/dc/terms/> .
+@prefix s2s:     <http://escience.rpi.edu/ontology/sesf/s2s/4/0/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix core:    <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> .
+@prefix facet:   <http://danielsmith.eu/resources/facet/#> .
+@prefix foe:     <http://danielsmith.eu/resources/facet/#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix skos:	 <http://www.w3.org/2004/02/skos/core#> .
+@prefix bcodmo:  <http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/> .
+@prefix tw:      <http://tw.rpi.edu/schema/> .
+@prefix geo:	 <http://a9.com/-/opensearch/extensions/geo/1.0/> .
+
+<http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl> 
+    dc:creator "Han Wang"^^xsd:string ;
+    a owl:Ontology ;
+    rdfs:comment "An ontology describing the metadata for the DCO Data Protal s2s search services."^^xsd:string ;
+    owl:imports <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> ;
+    owl:versionInfo "1.0"^^xsd:string .
+
+:PublicationSearchService
+    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/publications.xml"^^xsd:anyURI ;
+    a core:OpenSearchService, owl:Thing ;
+    rdfs:comment "A search service for publications in DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Data Protal Publication Search Service"^^xsd:string ;
+    rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
+
+:ObjectSearchService
+    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/objects.xml"^^xsd:anyURI ;
+    a core:OpenSearchService, owl:Thing ;
+    rdfs:comment "A search service for objects in DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Data Protal Object Search Service"^^xsd:string ;
+    rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
+
+:ProjectSearchService
+    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/projects.xml"^^xsd:anyURI ;
+    a core:OpenSearchService, owl:Thing ;
+    rdfs:comment "A search service for projects in DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Data Protal Project Search Service"^^xsd:string ;
+    rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
+
+:FieldStudySearchService
+    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/field_studies.xml"^^xsd:anyURI ;
+    a core:OpenSearchService, owl:Thing ;
+    rdfs:comment "A search service for field studies in DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Data Protal Field Study Search Service"^^xsd:string ;
+    rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
+
+:FieldStudyMapSearchService
+    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/field_studies.xml"^^xsd:anyURI ;
+    a core:OpenSearchService, owl:Thing ;
+    rdfs:comment "A map search service for field studies in DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Data Protal Field Study Map Search Service"^^xsd:string ;
+    rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
+
+:FieldStudyOpenToJournalistsMapSearchService
+    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/field_studies_open_to_journalists.xml"^^xsd:anyURI ;
+    a core:OpenSearchService, owl:Thing ;
+    rdfs:comment "A map search service for field studies in DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Data Protal Field Study Map Search Service"^^xsd:string ;
+    rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
+
+:DatasetSearchService
+    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/datasets.xml"^^xsd:anyURI ;
+    a core:OpenSearchService, owl:Thing ;
+    rdfs:comment "A search service for datasets in DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Data Protal Dataset Search Service"^^xsd:string ;
+    rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
+
+:PersonSearchService
+    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/people.xml"^^xsd:anyURI ;
+    a core:OpenSearchService, owl:Thing ;
+    rdfs:comment "A search service for people in DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Data Protal Person Search Service"^^xsd:string ;
+    rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
+
+:SearchTerms
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for free-text keyword search."^^xsd:string ;
+    rdfs:label "Search Terms (Title or Abstract)"^^xsd:string .
+
+:SearchNames
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for free-text keyword search."^^xsd:string ;
+    rdfs:label "Search Names"^^xsd:string .
+
+:StartDate
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected start date."^^xsd:string ;
+    rdfs:label "Start Date"^^xsd:string .
+
+:StartDateQuery
+    s2s:forInput :StartDate ;
+    s2s:hasOutput core:DateJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:EndDate
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected end date."^^xsd:string ;
+    rdfs:label "End Date"^^xsd:string .
+
+:EndDateQuery
+    s2s:forInput :EndDate ;
+    s2s:hasOutput core:DateJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Years
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected years of publications."^^xsd:string ;
+    rdfs:label "Years"^^xsd:string .
+
+:YearsQuery
+    s2s:forInput :Years ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Communities
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected DCO communities."^^xsd:string ;
+    rdfs:label "Communities"^^xsd:string .
+
+:CommunitiesQuery
+    s2s:forInput :Communities ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Groups
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected DCO Portal groups."^^xsd:string ;
+    rdfs:label "Groups"^^xsd:string .
+
+:GroupsQuery
+    s2s:forInput :Groups ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+                  
+:Authors
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected authors registerd in the DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Authors"^^xsd:string .
+
+:AuthorsQuery
+    s2s:forInput :Authors ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:OtherAuthors
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected authors not registered in the DCO Data Portal."^^xsd:string ;
+    rdfs:label "Other Authors"^^xsd:string .
+
+:OtherAuthorsQuery
+    s2s:forInput :OtherAuthors ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Organizations
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected organizations."^^xsd:string ;
+    rdfs:label "Organizations"^^xsd:string .
+
+:OrganizationsQuery
+    s2s:forInput :Organizations ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Concepts
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected concepts."^^xsd:string ;
+    rdfs:label "Concepts"^^xsd:string .
+
+:ConceptsQuery
+    s2s:forInput :Concepts ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Types
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected types of objects."^^xsd:string ;
+    rdfs:label "Types"^^xsd:string .
+
+:TypesQuery
+    s2s:forInput :Types ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Participants
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected participants."^^xsd:string ;
+    rdfs:label "Participants"^^xsd:string .
+
+:ParticipantsQuery
+    s2s:forInput :Participants ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Projects
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected projects."^^xsd:string ;
+    rdfs:label "Projects"^^xsd:string .
+
+:ProjectsQuery
+    s2s:forInput :Projects ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Grants
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data related to any selected grants."^^xsd:string ;
+    rdfs:label "Grants"^^xsd:string .
+
+:GrantsQuery
+    s2s:forInput :Grants ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+geo:box
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for data realted to any input bounding box."^^xsd:string ;
+    rdfs:label "Geo Bounding Box"^^xsd:string .
+
+:WmsQuery
+    s2s:forInput geo:box ;
+    s2s:hasOutput core:WmsUrl ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:ResultsListQuery
+    core:hasDefaultLimit "10"^^xsd:int ;
+    s2s:hasOutput core:TextHtml ;
+    a s2s:SearchResultsInterface ;
+    rdfs:comment "A s2s:SearchResultsInterface that returns a list of results as HTML."^^xsd:string ;
+    rdfs:label "Get Results List"^^xsd:string .
+
+:ResultsListWidget
+    core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ResultsListWidget"^^xsd:string ;
+    core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/ui/scripts/widgets/ResultsListWidget.js"^^xsd:anyURI ;
+    s2s:supportsOutput core:TextHtml ;
+    a s2s:ResultsWidget ;
+    rdfs:comment "A s2s:ResultsWidget for results lists that accepts XHTML content."^^xsd:string ;
+    rdfs:label "Results List Widget"^^xsd:string ;
+    owl:versionInfo "1.0"^^xsd:string .
+
+:DynamicMonthYearDateWidget
+    core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DynamicMonthYearDateWidget"^^xsd:string ;
+    core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/ui/scripts/widgets/DynamicMonthYearDateWidget.js"^^xsd:anyURI ;
+    s2s:supportsInput :StartDate, :EndDate ;
+    s2s:supportsOutput core:DateJsonArray ;
+    a core:JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that supports the time:start and time:end parameters from the OpenSearch extensions if there is a dynamic date availability callback."^^xsd:string ;
+    rdfs:label "Dynamic Date (Month-Year)  Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:WmsOpenLayersBoundingBox
+    core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.WmsOpenLayersBoundingBox"^^xsd:string ;
+    core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/ui/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI, "http://openlayers.org/api/OpenLayers.js"^^xsd:anyURI ;
+    s2s:supportsInput geo:box ;
+    s2s:supportsOutput core:WmsUrl ;
+    a core:JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget for selecting the geo:box parameter and using a dynamic WMS response to provide map context."^^xsd:string ;
+    rdfs:label "WMS Open Layers Bounding Box"^^xsd:string . 
+
+:DescendingContextSelect
+    core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DescendingContextSelect"^^xsd:string ;
+    core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/ui/scripts/widgets/DescendingContextSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput core:LabelIdContextCountJsonArray, core:LabelIdContextCountParentJsonArray, core:LabelIdContextJsonArray, core:LabelIdContextParentJsonArray ;
+    a core:JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that creates a list of checkboxes with links to information about the items."^^xsd:string ;
+    rdfs:label "Context Select (Descending)"^^xsd:string .
+
+:ResultsMapQuery
+    s2s:hasOutput core:TextHtml ;
+    a s2s:SearchResultsInterface ;
+    rdfs:comment "A s2s:SearchResultsInterface that returns a map of results as HTML."^^xsd:string ;
+    rdfs:label "Get Results Map"^^xsd:string .
+
+:ResultsMapWidget
+    core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ResultsMapWidget"^^xsd:string ;
+    core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/ui/scripts/widgets/ResultsArcGISMapWidget.js"^^xsd:anyURI ;
+    s2s:supportsOutput core:TextHtml ;
+    a s2s:ResultsWidget ;
+    rdfs:comment "A s2s:ResultsWidget for results that accepts XHTML content."^^xsd:string ;
+    rdfs:label "Results Map Widget"^^xsd:string . 
+
+:ContextSelect
+    core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ContextSelect"^^xsd:string ;
+    core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/ui/scripts/widgets/ContextSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput core:LabelIdContextCountJsonArray, core:LabelIdContextCountParentJsonArray, core:LabelIdContextJsonArray, core:LabelIdContextParentJsonArray ;
+    a core:JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that creates a list of checkboxes with links to information about the items."^^xsd:string ;
+    rdfs:label "Context Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:GenericWidget
+    core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.GenericWidget"^^xsd:string ;
+    core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/ui/scripts/widgets/GenericWidget.js"^^xsd:anyURI ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A generic s2s:InputWidget that supports any s2s:Input."^^xsd:string ;
+    rdfs:label "Generic Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .

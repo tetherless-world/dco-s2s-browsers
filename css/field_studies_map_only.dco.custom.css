@@ -1,0 +1,50 @@
+body {
+	margin: 0px;
+}
+
+.ui-datepicker-calendar {
+	display: none;
+}
+
+.clear-button {
+	margin-left: 4px;
+}
+
+.esriPopup {
+	font-size: 10px;
+}
+
+.esriPopup .sizer {
+	width: 360px;
+}
+
+#s2s-facet-panel {
+	display: none
+}
+
+div#results-map {
+	width: 960px;
+	height: 720px;
+}
+
+div.field-site-info {
+	margin-bottom: 5px;
+}
+
+div.popup-thumbnail {
+	float: left;
+	margin-right: 5px;
+}
+
+div.popup-thumbnail img {
+	height: 90px;
+}
+
+div.popup-text {
+	overflow: auto;
+}
+
+div.popup-text p {
+	margin: 0;
+}
+

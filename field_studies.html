@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<title>DCO Field Studies</title>
+		<link rel="stylesheet" href="s2s/client/css/smoothness/jquery-ui-1.10.0.custom.css" type="text/css">
+		<link rel="stylesheet" href="css/dco.custom.css" type="text/css">
+		<!-- JavaScript Libraries -->
+		<script src="s2s/client/scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/lib/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/lib/jquery.multi-open-accordion-1.5.3.custom.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/lib/json-serialization.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/lib/load.js" type="text/javascript"></script>
+		<script src="js/OpenLayers-2.13.1/OpenLayers.js" type="text/javascript"></script>
+		<!-- S2S Core JavaScript -->
+		<script src="s2s/client/scripts/core/s2s-utils.js" type="text/javascript"></script> <!-- Always load first -->
+		<script src="js/s2s-config.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/core/HookPanel.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/core/FacetPanel.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/core/WidgetPanel.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/core/Input.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/core/Interface.js" type="text/javascript"></script>
+		<script src="s2s/client/scripts/core/SearchService.js" type="text/javascript"></script>
+		<script type="text/javascript">
+
+		(function(s2s,$) {
+			$(document).ready(function() {
+		                //Be sure to change the URI argument of the SearchService constructor to your service URI.
+				//Rather than configuring the service through an XML file, it can be done with a JSON object
+				var s2sConfOntURI = 'http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#';
+				var s2sCoreOntURI = 'http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/';
+				var config = {
+					'paradigm' : 'http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchicalSearch',
+					'inputs' : [
+						{'name' : s2sConfOntURI + 'StartDate', 'enabled' : true, 'widget' : s2sConfOntURI + 'DynamicMonthYearDateWidget'},
+						{'name' : s2sConfOntURI + 'EndDate', 'enabled' : true, 'widget' : s2sConfOntURI + 'DynamicMonthYearDateWidget'},
+						{'name' : s2sConfOntURI + 'Communities', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},
+						{'name' : s2sConfOntURI + 'Groups', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},
+						{'name' : s2sConfOntURI + 'Participants', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},
+						{'name' : s2sConfOntURI + 'Grants', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},
+					]
+				}
+				var service = new s2s.SearchService(s2sConfOntURI + 'FieldStudySearchService', config);
+		                var callback = function(response) {}
+		                //var intrfc = s2sConfOntURI + 'BcoDmoMapperQuery';
+		                var hook = new s2s.utils.HookPanel(null, callback);
+		                service.addPanel(hook);
+		                hook.update({});
+			});
+		})(edu.rpi.tw.sesf.s2s,jQuery);
+		</script>
+	</head>
+	<body>
+	        <!-- The name attribute of this <div> specifies where UI components belonging to the named service -->
+		<!-- will be placed.  If you change the name of the service, in the $.ready() function, be sure to -->
+                <!-- adjust the name of this <div> as well. -->
+		<div name="http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#FieldStudySearchService">
+			<table>
+				<tbody>
+					<tr>
+					        <!-- If you wish to use the default facet panel, leave unchanged -->
+						<td id="s2s-facet-panel" style="vertical-align:top;width:15em"></td>
+						<!-- Change the values of the two hidden inputs to specify your results query -->
+						<!-- interface and the widget you wish to use to render the results. -->
+						<td class="s2s-widget-panel" style="vertical-align:top">
+							<input type="hidden" name="interface" value="http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#ResultsListQuery" />
+							<input type="hidden" name="widget" value="http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#ResultsListWidget" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

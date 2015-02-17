@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+	xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
+	xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
+	xmlns:dco="http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#"
+	xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+
+  <ShortName>DCO Data Portal Dataset Search</ShortName>
+  <Description>DCO Data Portal Dataset Search Service. This opensearch
+  document describes how to call the various RESTful services in order
+  to fill s2s facets (select year of the dataset, DCO communities the
+  dataset is related to, DCO groups the data sets are related to, the
+  DCO authors of the datasets, non-DCO authors of the datasets, and the
+  projects the datasets are related to), and the result set.</Description>
+  <Tags></Tags>
+  <Contact>Han Wang</Contact>
+  <Url type="application/json" rel="dco:YearsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=years&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;other_authors={dco:OtherAuthors?}&amp;projects={dco:Projects?}" />
+  <Url type="application/json" rel="dco:CommunitiesQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=communities&amp;years={dco:Years?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;other_authors={dco:OtherAuthors?}&amp;projects={dco:Projects?}" />
+  <Url type="application/json" rel="dco:GroupsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=groups&amp;communities={dco:Communities?}&amp;years={dco:Years?}&amp;authors={dco:Authors?}&amp;other_authors={dco:OtherAuthors?}&amp;projects={dco:Projects?}" />
+  <Url type="application/json" rel="dco:AuthorsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=authors&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;years={dco:Years?}&amp;other_authors={dco:OtherAuthors?}&amp;projects={dco:Projects?}" />
+  <Url type="application/json" rel="dco:OtherAuthorsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=other_authors&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;years={dco:Years?}&amp;projects={dco:Projects?}" />
+  <Url type="application/json" rel="dco:ProjectsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=projects&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;other_authors={dco:OtherAuthors?}&amp;years={dco:Years?}" />
+  <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=datasets&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;other_authors={dco:OtherAuthors?}&amp;projects={dco:Projects?}&amp;years={dco:Years?}&amp;limit={count}&amp;offset={startIndex}" />
+  <!--
+  <Url type="application/json" rel="bcodmo:BcoDmoMapperQuery" template="http://aquarius.tw.rpi.edu/s2s/BCO-DMO/1.0/search.php?request=mapper&amp;bbox={geo:box?}&amp;startDate={time:start?}&amp;endDate={time:end?}&amp;programs={bcodmo:Programs?}&amp;projects={bcodmo:Projects?}&amp;instruments={bcodmo:Instruments?}&amp;people={bcodmo:People?}&amp;deployments={bcodmo:Deployments?}&amp;awards={bcodmo:Awards?}&amp;parameters={bcodmo:Parameters?}&amp;instcats={bcodmo:InstrumentCategories?}&amp;platforms={bcodmo:Platforms?}&amp;paramcats={bcodmo:ParameterCategories?}" />
+-->
+  <LongName>DCO Data Portal Dataset Search Service</LongName>
+  <Developer>Han Wang</Developer>
+  <Attribution></Attribution>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultContent>false</AdultContent>
+  <Language>en-us</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>
+
