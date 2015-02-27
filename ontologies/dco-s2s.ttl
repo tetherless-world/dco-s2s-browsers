@@ -123,6 +123,17 @@
     s2s:hasOutput core:LabelIdContextCountJsonArray ;
     a s2s:InputValuesInterface, owl:Thing .
 
+:ReportingYears
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for project/field studies by project update reporting year ."^^xsd:string ;
+    rdfs:label "Reporting Years"^^xsd:String .
+
+:ReportingYearsQuery
+    s2s:forInput :ReportingYears ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
 :Communities
     core:hasDelimiter ";"^^xsd:string ;
     a s2s:Input, owl:Thing ;
