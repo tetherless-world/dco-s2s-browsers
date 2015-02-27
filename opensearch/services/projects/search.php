@@ -47,6 +47,11 @@ if (@$_GET['endDate'] && @$_GET['endDate'] != '') {
     $constraints['endDate'] = $_GET['endDate'];
 }
 
+// Get the reporting year constraints from the request url
+if (@$_GET['reportingYears'] && @$_GET['reportingYears'] != '') {
+    $constraints['reportingYears'] = explode(";", $_GET['reportingYears']);
+}
+
 // Get the number of results displayed on each page from the request url
 if (@$_GET['limit'] && @$_GET['limit'] != '') {
     $limit = $_GET['limit'];

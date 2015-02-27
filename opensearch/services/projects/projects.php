@@ -314,7 +314,15 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 				$body .= "?project a vivo:Project ; vivo:dateTimeInterval [vivo:end [vivo:dateTime ?d]] . ";
 				$body .= "FILTER(NOT EXISTS{?project a dco:FieldStudy . })";
 				$body .= "BIND(str(?d) AS ?date) . ";
-				break; 
+				break;
+
+            case "reportingYears":
+                $body .= "?project a dco:Project . " ;
+                $body .= "?project dco:hasProjectUpdate ?projectUpdate . " ;
+                $body .= "?projectUpdate dco:forReportingYear ?id . ";
+                $body .= "?id rdfs:label ?l . " ;
+                $body .= "BIND(str(?l) AS ?label) . ";
+                break;
 				
 			case "count":
 				$body .= "?project a vivo:Project . ";
@@ -391,6 +399,9 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 			case "participants":
 				$body .= "{{ ?project obo:BFO_0000055 ?role . } UNION { ?project vivo:contributingRole ?role . } ?role obo:RO_0000052 <$constraint_value> . }";
 				break;
+            case "reportingYears":
+                $body .= "{ ?project dco:hasProjectUpdate ?projectUpdate . ?projectUpdate dco:forReportingYear <$constraint_value> }";
+                break;
 			default:
 				break;
 		}
@@ -408,7 +419,10 @@ class DCO_Projects_S2SConfig extends S2SConfig {
      */
 	private function addContextLinks(&$results, $type) {
 		
-		if ($type == "communities" || $type == "groups" || $type == "participants") {
+		if ($type == "communities"
+            || $type == "groups"
+            || $type == "participants"
+            || $type == "reportingYears") {
 			foreach ( $results as $i => $result ) {
 				$results[$i]['context'] = $result['id']; 
 			}
