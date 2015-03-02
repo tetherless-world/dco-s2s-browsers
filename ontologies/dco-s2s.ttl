@@ -127,7 +127,7 @@
     core:hasDelimiter ";"^^xsd:string ;
     a s2s:Input, owl:Thing ;
     rdfs:comment "A search parameter for project/field studies by project update reporting year ."^^xsd:string ;
-    rdfs:label "Reporting Years"^^xsd:String .
+    rdfs:label "Reporting Years"^^xsd:string .
 
 :ReportingYearsQuery
     s2s:forInput :ReportingYears ;
