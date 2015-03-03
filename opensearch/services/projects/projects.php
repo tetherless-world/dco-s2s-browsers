@@ -39,8 +39,12 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 	public function getNamespaces() {
 		return $this->namespaces;
 	}
-	
-	/**
+
+    private $queryParameter = "query=" ;
+    private $queryOutputParameter = "&output=xml" ; // fuseki endpoint
+    //private $queryOutputParameter = "&resultFormat=RS_XML" ; // native VIVO endpoint
+
+    /**
 	* Execute SPARQL select query
 	* @param string $query SPARQL query to execute
 	* @return array an array of associative arrays containing the bindings of the query results
@@ -53,7 +57,7 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 			CURLOPT_TIMEOUT => 120
 		);
 				
-		$encoded_query = 'query=' . urlencode($query) . '&output=xml';
+		$encoded_query = $this->queryParameter . urlencode($query) . $this->queryOutputParameter;
 		return execSelect($this->getEndpoint(), $encoded_query, $options);
 	}
 
@@ -317,7 +321,7 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 				break;
 
             case "reportingYears":
-                $body .= "?project a dco:Project . " ;
+                $body .= "?project a vivo:Project . " ;
                 $body .= "?project dco:hasProjectUpdate ?projectUpdate . " ;
                 $body .= "?projectUpdate dco:forReportingYear ?id . ";
                 $body .= "?id rdfs:label ?l . " ;
