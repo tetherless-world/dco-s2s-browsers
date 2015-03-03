@@ -325,6 +325,7 @@ class DCO_Projects_S2SConfig extends S2SConfig {
                 $body .= "?project dco:hasProjectUpdate ?projectUpdate . " ;
                 $body .= "?projectUpdate dco:forReportingYear ?id . ";
                 $body .= "?id rdfs:label ?l . " ;
+                $body .= "FILTER(NOT EXISTS{?project a dco:FieldStudy . })";
                 $body .= "BIND(str(?l) AS ?label) . ";
                 break;
 				
