@@ -314,7 +314,7 @@ geo:box
 
 :ContextSelect
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ContextSelect"^^xsd:string ;
-    core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/ui/scripts/widgets/ContextSelect.js"^^xsd:anyURI ;
+    core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/s2s/client/scripts/widgets/ContextSelect.js"^^xsd:anyURI ;
     s2s:supportsOutput core:LabelIdContextCountJsonArray, core:LabelIdContextCountParentJsonArray, core:LabelIdContextJsonArray, core:LabelIdContextParentJsonArray ;
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A s2s:InputWidget that creates a list of checkboxes with links to information about the items."^^xsd:string ;
@@ -324,7 +324,7 @@ geo:box
 :GenericWidget
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.GenericWidget"^^xsd:string ;
     core:requiresJavaScript "http://data.deepcarbon.net/dco-s2s/ui/scripts/widgets/GenericWidget.js"^^xsd:anyURI ;
-    a :JavaScriptWidget, s2s:InputWidget ;
+    a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A generic s2s:InputWidget that supports any s2s:Input."^^xsd:string ;
     rdfs:label "Generic Widget"^^xsd:string ;
     owl:versionInfo "4.0"^^xsd:string .
