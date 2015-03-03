@@ -18,7 +18,7 @@
 <http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl> 
     dc:creator "Han Wang"^^xsd:string ;
     a owl:Ontology ;
-    rdfs:comment "An ontology describing the metadata for the DCO Data Protal s2s search services."^^xsd:string ;
+    rdfs:comment "An ontology describing the metadata for the DCO Data Portal s2s search services."^^xsd:string ;
     owl:imports <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> ;
     owl:versionInfo "1.0"^^xsd:string .
 
@@ -26,56 +26,56 @@
     core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/publications.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for publications in DCO Data Portal."^^xsd:string ;
-    rdfs:label "DCO Data Protal Publication Search Service"^^xsd:string ;
+    rdfs:label "DCO Data Portal Publication Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :ObjectSearchService
     core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/objects.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for objects in DCO Data Portal."^^xsd:string ;
-    rdfs:label "DCO Data Protal Object Search Service"^^xsd:string ;
+    rdfs:label "DCO Data Portal Object Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :ProjectSearchService
     core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/projects.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for projects in DCO Data Portal."^^xsd:string ;
-    rdfs:label "DCO Data Protal Project Search Service"^^xsd:string ;
+    rdfs:label "DCO Data Portal Project Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :FieldStudySearchService
     core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/field_studies.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for field studies in DCO Data Portal."^^xsd:string ;
-    rdfs:label "DCO Data Protal Field Study Search Service"^^xsd:string ;
+    rdfs:label "DCO Data Portal Field Study Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :FieldStudyMapSearchService
     core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/field_studies.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A map search service for field studies in DCO Data Portal."^^xsd:string ;
-    rdfs:label "DCO Data Protal Field Study Map Search Service"^^xsd:string ;
+    rdfs:label "DCO Data Portal Field Study Map Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :FieldStudyOpenToJournalistsMapSearchService
     core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/field_studies_open_to_journalists.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A map search service for field studies in DCO Data Portal."^^xsd:string ;
-    rdfs:label "DCO Data Protal Field Study Map Search Service"^^xsd:string ;
+    rdfs:label "DCO Data Portal Field Study Map Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :DatasetSearchService
     core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/datasets.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for datasets in DCO Data Portal."^^xsd:string ;
-    rdfs:label "DCO Data Protal Dataset Search Service"^^xsd:string ;
+    rdfs:label "DCO Data Portal Dataset Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :PersonSearchService
     core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/dco-s2s/opensearch/descriptions/people.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for people in DCO Data Portal."^^xsd:string ;
-    rdfs:label "DCO Data Protal Person Search Service"^^xsd:string ;
+    rdfs:label "DCO Data Portal Person Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :SearchTerms
