@@ -78,6 +78,25 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 		return $this->sparqlSelect($query);
 	}
 
+    private function getProjectUpdatesByProject($project) {
+        $query = $this->getPrefixes();
+        $query .= "SELECT DISTINCT ?projectUpdate ?projectUpdateLabel ?reportingYearLabel
+WHERE
+{
+  <$project> dco:hasProjectUpdate ?projectUpdate .
+  OPTIONAL {
+  	?projectUpdate rdfs:label ?pul .
+  	BIND(str(?pul) AS ?projectUpdateLabel) .
+  }
+  OPTIONAL {
+  	?projectUpdate dco:forReportingYear ?reportingYear .
+  	?reportingYear rdfs:label ?ryl .
+  	BIND(str(?ryl) AS ?reportingYearLabel) .
+  }
+}";
+        return $this->sparqlSelect($query);
+    }
+
 	/**
 	* Return count of total search results for specified constraints
 	* @param array $constraints array of arrays with search constraints
@@ -187,7 +206,7 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 
 		// Grants 
 		if (isset($result['grant'])) {
-			$html .= "<br /><span>Grants: ";
+			$html .= "<div>Grants: ";
 			$grant_arr = explode(",", $result['grant']);
 			$grant_label_arr = explode(",", $result['grant_label']);
 			$grants_markup = array();
@@ -196,13 +215,69 @@ class DCO_Projects_S2SConfig extends S2SConfig {
                             	array_push($grants_markup, "<a target='_blank' href=\"" . $grant_summary_url . "\">" . $grant_label_arr[$i] . "</a>");
 			}
 			$html .= implode('; ', $grants_markup);
-			$html .= "</span>";
+			$html .= "</div>";
 		}
+
+        $html .= $this->getSearchResultProjectUpdateHTML($result);
 
 		$html .= "</div>";
 		return $html;
 	}
-	
+
+    /**
+     * Create HTML for Project Update section of search result entry
+     * @param array $result
+     * @return string HTML
+     */
+    private function getSearchResultProjectUpdateHTML(array $result) {
+
+        $html = "";
+
+        $project_updates = $this->getProjectUpdatesByProject($result['project']);
+
+        if(count($project_updates) > 0) {
+
+            $reportingYears = array();
+
+            foreach ($project_updates as $i => $project_update) {
+
+                $reportingYearLabel = $project_update["reportingYearLabel"];
+
+                if(array_key_exists($reportingYearLabel, $reportingYears)) {
+                    array_push($reportingYears[$reportingYearLabel], $project_update);
+                } else {
+                    $reportingYears[$reportingYearLabel] = array($project_update);
+                }
+            }
+
+            $html .= "<div><span>Project Updates:</span>";
+            $html .= "<ul>";
+
+            // define a li for each reporting year (will become a tab)
+            foreach ($reportingYears as $i => $reportingYear) {
+
+                $html .= "<li>$i<ul>" ;
+
+                // loop through the different updates
+                foreach($reportingYear as $j => $projectUpdate) {
+
+                    $projectUpdateURI = $projectUpdate["projectUpdate"];
+                    $projectUpdateLabel = $projectUpdate["projectUpdateLabel"];
+                    $projectUpdateURI_Local = "http://udco.tw.rpi.edu/vivo/" . substr($projectUpdateURI, 27);
+                    $html .= "<li><a href='$projectUpdateURI_Local'>$projectUpdateLabel</a></li>" ;
+                }
+
+                $html .= "</ul></li>";
+
+            }
+
+            $html .= "</ul>";
+            $html .= "</div>"; // #project-updates
+        }
+
+        return $html;
+    }
+
 	/**
 	* Return SPARQL query header component
 	* @param string $type search type (e.g. 'datasets', 'authors', 'keywords')
