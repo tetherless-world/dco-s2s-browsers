@@ -78,6 +78,21 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 		return $this->sparqlSelect($query);
 	}
 
+    private function getProjectUpdatesForProjects(array $projects)
+    {
+        $query = $this->getPrefixes();
+        $query .= "SELECT DISTINCT ?project ?projectUpdate ?projectUpdateLabel ?reportingYearLabel WHERE { ";
+
+        foreach ($projects as $i => $project) {
+            $query .= "OPTIONAL { BIND(str(<$project>) AS ?project) . <$project> dco:hasProjectUpdate ?projectUpdate . } ";
+        }
+
+        $query .= "OPTIONAL { ?projectUpdate rdfs:label ?pul . BIND(str(?pul) AS ?projectUpdateLabel) . } " ;
+        $query .= "OPTIONAL { ?projectUpdate dco:forReportingYear ?reportingYear . ?reportingYear rdfs:label ?ryl . BIND(str(?ryl) AS ?reportingYearLabel) . } " ;
+        $query .= " }";
+        return $query;
+    }
+
     private function getProjectUpdatesByProject($project) {
         $query = $this->getPrefixes();
         $query .= "SELECT DISTINCT ?projectUpdate ?projectUpdateLabel ?reportingYearLabel
@@ -218,7 +233,9 @@ WHERE
 			$html .= "</div>";
 		}
 
+		/*
         $html .= $this->getSearchResultProjectUpdateHTML($result);
+		*/
 
 		$html .= "</div>";
 		return $html;
@@ -522,6 +539,9 @@ WHERE
 
 		// Output for the request type "projects"				
 		if ($type == "projects") {
+
+            // TODO query to pre-populate array for project update info?
+
 			$count = $this->getSearchResultCount($constraints);						
 			return $this->getSearchResultsOutput($results, $limit, $offset, $count);
 		}
