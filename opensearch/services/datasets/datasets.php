@@ -225,19 +225,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 			$html .= "</span>";
 		}
 
-		//data types
-		if(isset($result['data_type'])){
-			$html .= "<br /><span>Data Types: ";
-			$data_type_array = explode(",", $result['data_type']);
-			$data_type_label_array = explode(",", $result['data_type_label']);
-			$data_types_markup = array();
-			foreach ($data_type_array as $i => $dType) {
-				array_push($data_types_markup, "<a target='_blank' href=\"" . $dType . "\">" . $data_type_label_array[$i] . "</a>");
-			}
-			$html .= implode('; ', $data_types_markup);
-			$html .= "</span>";
-		}
-
 		// access
 		if (isset($result['access'])) {
 			$html .= "<br /><span>Access restriction: " . $result['access'] . "</span>";
