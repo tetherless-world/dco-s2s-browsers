@@ -72,22 +72,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 		return $this->sparqlSelect($query);
 	}
 
-	/*
-	* Get data types for a given dataset
-	* @param string $dataset dataset uri
-	* @return array an array of associative arrays containing the data types
-	*/
-	private function getDataTypesByDataset($dataset) {
-
-		$query = $this->getPrefixes();
-		$query .= "SELECT DISTINCT ?uri ?dataType_label WHERE { ";
-		$query .= "<$dataset> dco:hasDataType ?uri . ";
-		$query .= "?uri a dco:DataType . ";
-		$query .= "?uri rdfs:label ?label . ";
-		$query .= "BIND(str(?label) AS ?dataType_label) } ";
-		return $this->sparqlSelect($query);
-	}
-
 	/**
 	* Get other authors for a given dataset
 	* @param string $dataset dataset uri
@@ -366,14 +350,7 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 				$body .= "?dataset dco:yearOfPublication ?id . ";
 				$body .= "BIND(str(?id) AS ?label) . ";
 				break;
-
-			case "datatypes":
-				$body .= "?dataset a vivo:Dataset . ";
-				$body .= "?dataset  dco:hasDataType ?d . ";
-				$body .= "?d rdfs:label ?d_l . ";
-				$body .= "BIND(str(?d_l) AS ?dataType_label) . ";
-				break;
-
+				
 			case "count":
 				$body .= "?dataset a vivo:Dataset . ";
 				break;
@@ -385,7 +362,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 				$body .= "OPTIONAL { ?dataset dco:yearOfPublication ?y . } ";
 				$body .= "OPTIONAL { ?dataset dco:associatedDCOCommunity ?comm . ?comm rdfs:label ?c_l . } ";
 				$body .= "OPTIONAL { ?dataset dco:associatedDCOPortalGroup ?gp . ?gp rdfs:label ?g_l . } ";
-				$body .= "OPTIONAL { ?dataset dco:hasDataType ?d . ?d rdfs:label ?d_l . } ";
 				$body .= "OPTIONAL { ?project dco:relatedDataset ?dataset ; rdfs:label ?pl . } ";
 				$body .= "OPTIONAL { ?dataset obo:ERO_0000045 ?acc . } ";
 				$body .= "BIND(str(?l) AS ?label) . ";
@@ -393,7 +369,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 				$body .= "BIND(str(?y) AS ?year) . ";
 				$body .= "BIND(str(?c_l) AS ?comm_label) . ";
 				$body .= "BIND(str(?g_l) AS ?gp_label) . ";
-				$body .= "BIND(str(?d_l) AS ?dataType_label) . ";
 				$body .= "BIND(str(?acc) AS ?access) . ";
 				$body .= "BIND(str(?pl) AS ?project_label) . ";
 				break;
@@ -430,9 +405,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 			case "years":
 				$body .= "{ ?dataset dco:yearOfPublication \"$constraint_value\"^^xsd:gYear }";
 				break;
-			case "datatypes":
-				$body .= "{ ?dataset dco:hasDataType <$constraint_value> }";
-				break;
 			default:
 				break;
 		}
@@ -450,7 +422,7 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
      */
 	private function addContextLinks(&$results, $type) {
 		
-		if ($type == "communities" || $type == "groups" || $type == "authors" || $type == "projects" || $type == "datatypes") {
+		if ($type == "communities" || $type == "groups" || $type == "authors" || $type == "projects") {
 			foreach ( $results as $i => $result ) {
 				$results[$i]['context'] = $result['id']; 
 			}
