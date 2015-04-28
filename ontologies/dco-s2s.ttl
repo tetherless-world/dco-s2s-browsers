@@ -81,7 +81,7 @@
     core:hasDelimiter ";"^^xsd:string ;
     a s2s:Input, owl:Thing ;
     rdfs:comment "A search parameter for free-text keyword search."^^xsd:string ;
-    rdfs:label "Search Names"^^xsd:string .
+    rdfs:label "Search People by Name"^^xsd:string .
 
 :StartDate
     core:hasDelimiter ";"^^xsd:string ;
@@ -252,7 +252,7 @@ geo:box
     core:hasDelimiter ";"^^xsd:string ;
     a s2s:Input, owl:Thing ;
     rdfs:comment "A search parameter for data realted to any input bounding box."^^xsd:string ;
-    rdfs:label "Geo Bounding Box"^^xsd:string .
+    rdfs:label "Geographic Region"^^xsd:string .
 
 :WmsQuery
     s2s:forInput geo:box ;

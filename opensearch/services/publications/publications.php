@@ -78,19 +78,6 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 	}
 
 	/**
-        * Get other authors for a given publication
-        * @param string $publication publication uri
-        * @return array an array of associative arrays containing the other author bindings
-        */
-	private function getOtherAuthorsByPublication($publication) {
-		$query = $this->getPrefixes();
-		$query .= "SELECT DISTINCT ?name WHERE { ";
-		$query .= "<$publication> dco:authorName ?n . ";
-		$query .= "BIND(str(?n) AS ?name) } ";
-		return $this->sparqlSelect($query);
-	}
-
-	/**
 	* Return count of total search results for specified constraints
 	* @param array $constraints array of arrays with search constraints
 	* @result int search result count
@@ -136,22 +123,13 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 
 		// authors
 		$dco_authors = $this->getDCOAuthorsByPublication($result['publication']);
-		$other_authors = $this->getOtherAuthorsByPublication($result['publication']);
-		if (count($dco_authors) > 0 || count($other_authors) > 0) {
+		if (count($dco_authors) > 0) {
 			$html .= "<br /><span>Authors: ";
 			if (count($dco_authors) > 0) {
 				$authors_markup = array();
 				foreach ($dco_authors as $i => $author) {	
 					array_push($authors_markup, "<a target='_blank' href=\"" . $author['uri'] . "\">" . $author['name'] . "</a>");
 				}
-				$html .= implode('; ', $authors_markup);
-			}
-			if (count($other_authors) > 0) {
-				$authors_markup = array();
-				foreach ($other_authors as $i => $author) {
-					array_push($authors_markup, $author['name']);
-				}
-				if (substr($html, -1) == ">") $html .= "; ";
 				$html .= implode('; ', $authors_markup);
 			}
 			$html .= "</span>";
@@ -253,12 +231,6 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 				$body .= "?id a foaf:Person . ";
 				$body .= "?id rdfs:label ?l . ";
 				$body .= "BIND(str(?l) AS ?label) . ";
-				break;
-
-			case "other_authors":
-				$body .= $this->publication_types;
-				$body .= "?publication dco:authorName ?id . ";
-				$body .= "BIND(str(?id) AS ?label) . ";
 				break;
 
 			case "organizations":
@@ -367,9 +339,6 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 				break;
 			case "authors":
 				$body .= "{ ?publication vivo:relatedBy [vivo:relates <$constraint_value>] }";
-				break;
-			case "other_authors":
-				$body .= "{ ?publication dco:authorName \"" . urldecode($constraint_value) . "\" }";
 				break;
 			case "concepts":
 				$body .= "{ ?publication vivo:hasSubjectArea <$constraint_value> }";
