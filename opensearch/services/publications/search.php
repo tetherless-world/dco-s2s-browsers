@@ -37,11 +37,6 @@ if (@$_GET['authors'] && @$_GET['authors'] != '') {
     $constraints['authors'] = explode(";",$_GET['authors']);
 }
 
-// Get the other author constraints from the request url
-if (@$_GET['other_authors'] && @$_GET['other_authors'] != '') {
-    $constraints['other_authors'] = explode(";",$_GET['other_authors']);
-}
-
 // Get the organization constraints from the request url
 if (@$_GET['organizations'] && @$_GET['organizations'] != '') {
     $constraints['organizations'] = explode(";",$_GET['organizations']);

@@ -73,19 +73,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 	}
 
 	/**
-	* Get other authors for a given dataset
-	* @param string $dataset dataset uri
-	* @return array an array of associative arrays containing the other author bindings
-	*/
-	private function getOtherAuthorsByDataset($dataset) {
-		$query = $this->getPrefixes();
-		$query .= "SELECT DISTINCT ?name WHERE { ";
-		$query .= "<$dataset> dco:authorName ?n . ";
-		$query .= "BIND(str(?n) AS ?name) } ";
-		return $this->sparqlSelect($query);
-	}
-
-	/**
 	* Get distributions for a given dataset
 	* @param string $dataset dataset uri
 	* @return array an array of associative arrays containing the distribution bindings 
@@ -177,22 +164,13 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 
 		// authors
 		$dco_authors = $this->getDCOAuthorsByDataset($result['dataset']);
-		$other_authors = $this->getOtherAuthorsByDataset($result['dataset']);
-		if (count($dco_authors) > 0 || count($other_authors) > 0) {
+		if (count($dco_authors) > 0) {
 			$html .= "<br /><span>Authors: ";
 			if (count($dco_authors) > 0) {
 				$authors_markup = array();
 				foreach ($dco_authors as $i => $author) {	
 					array_push($authors_markup, "<a target='_blank' href=\"" . $author['uri'] . "\">" . $author['name'] . "</a>");
 				}
-				$html .= implode('; ', $authors_markup);
-			}
-			if (count($other_authors) > 0) {
-				$authors_markup = array();
-				foreach ($other_authors as $i => $author) {
-					array_push($authors_markup, $author['name']);
-				}
-				if (substr($html, -1) == ">") $html .= "; ";
 				$html .= implode('; ', $authors_markup);
 			}
 			$html .= "</span>";
@@ -317,12 +295,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 				$body .= "BIND(str(?l) AS ?label) . ";
 				break;
 
-			case "other_authors":
-				$body .= "?dataset a vivo:Dataset . ";
-				$body .= "?dataset dco:authorName ?id . ";
-				$body .= "BIND(str(?id) AS ?label) . ";
-				break;
-
 			case "projects":
 				$body .= "?dataset a vivo:Dataset . ";
 				$body .= "?project a vivo:Project . ";
@@ -382,9 +354,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 				break;
 			case "authors":
 				$body .= "{ ?dataset vivo:relatedBy [vivo:relates <$constraint_value>] }";
-				break;
-			case "other_authors":
-				$body .= "{ ?dataset dco:authorName \"" . urldecode($constraint_value) . "\" }";
 				break;
 			case "projects":
 				$body .= "{ <$constraint_value> dco:relatedDataset ?dataset }";
