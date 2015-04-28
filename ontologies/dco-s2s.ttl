@@ -226,14 +226,14 @@
     s2s:hasOutput core:LabelIdContextCountJsonArray ;
     a s2s:InputValuesInterface, owl:Thing .
 
-:DataTypes
+:DataType
     core:hasDelimiter ";"^^xsd:string ;
     a s2s:Input, owl:Thing ;
     rdfs:comment "A search parameter for retrieving data sets based on the selected data types."^^xsd:string ;
     rdfs:label "Data Types"^^xsd:string .
 
 :DataTypeQuery
-    s2s:forInput :DataTypes ;
+    s2s:forInput :DataType ;
     s2s:hasOutput core:LabelIdContextCountJsonArray ;
     a s2s:InputValuesInterface, owl:Thing .
 

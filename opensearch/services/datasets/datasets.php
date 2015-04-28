@@ -369,9 +369,9 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 
 			case "datatypes":
 				$body .= "?dataset a vivo:Dataset . ";
-				$body .= "?dataset  dco:hasDataType ?d . ";
-				$body .= "?d rdfs:label ?d_l . ";
-				$body .= "BIND(str(?d_l) AS ?dataType_label) . ";
+				$body .= "?dataset  dco:hasDataType ?id . ";
+				$body .= "?id rdfs:label ?label . ";
+				$body .= "BIND(str(?id) AS ?label) . ";
 				break;
 
 			case "count":
@@ -387,7 +387,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 				$body .= "OPTIONAL { ?dataset dco:associatedDCOPortalGroup ?gp . ?gp rdfs:label ?g_l . } ";
 				$body .= "OPTIONAL { ?project dco:relatedDataset ?dataset ; rdfs:label ?pl . } ";
 				$body .= "OPTIONAL { ?dataset obo:ERO_0000045 ?acc . } ";
-				$body .= "OPTIONAL { ?dataset dco:hasDataType ?d . ?d rdfs:label ?d_l . }";
 				$body .= "BIND(str(?l) AS ?label) . ";
 				$body .= "BIND(str(?id) AS ?dco_id) . ";
 				$body .= "BIND(str(?y) AS ?year) . ";
@@ -395,7 +394,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 				$body .= "BIND(str(?g_l) AS ?gp_label) . ";
 				$body .= "BIND(str(?acc) AS ?access) . ";
 				$body .= "BIND(str(?pl) AS ?project_label) . ";
-				$body .= "BIND(str(?d_l) AS ?dataType_label) . ";
 				break;
 		}
 				
