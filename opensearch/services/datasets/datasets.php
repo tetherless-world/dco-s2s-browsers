@@ -165,19 +165,6 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 			$html .= "</span>";
 		}
 
-		//data types
-		if(isset($result['data_type'])){
-			$html .= "<br /><span>Data Types: ";
-			$data_type_array = explode(",", $result['data_type']);
-			$data_type_label_array = explode(",", $result['data_type_label']);
-			$data_types_markup = array();
-			foreach ($data_type_array as $i => $dType) {
-				array_push($data_types_markup, "<a target='_blank' href=\"" . $dType . "\">" . $data_type_label_array[$i] . "</a>");
-			}
-			$html .= implode('; ', $data_types_markup);
-			$html .= "</span>";
-		}
-
 		// groups
 		if (isset($result['group'])) {
 			$html .= "<br /><span>Groups: ";
@@ -202,6 +189,18 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 				}
 				$html .= implode('; ', $authors_markup);
 			}
+			$html .= "</span>";
+		}
+
+		// data types
+		$datatypes = $this->getDataTypesByDataset($result['dataset']);
+		if(count($datatypes) > 0){
+			$html .= "<br /><span>Data Types: ";
+			$datatypes_markup = array();
+				foreach($datatypes as $key => $dataType){
+					array_push($datatypes_markup, "<a target='_blank' href=\"" . $dataType['uri'] . "\">" . $dataType['dataType_label'] . "</a>");
+				}
+			$html .= implode('; ', $datatypes_markup);
 			$html .= "</span>";
 		}
 
@@ -342,8 +341,8 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 			case "datatypes":
 				$body .= "?dataset a vivo:Dataset . ";
 				$body .= "?dataset  dco:hasDataType ?id . ";
-				$body .= "?id rdfs:label ?label . ";
-				$body .= "BIND(str(?id) AS ?label) . ";
+				$body .= "?id rdfs:label ?l . ";
+				$body .= "BIND(str(?l) AS ?label) . ";
 				break;
 
 			case "count":
