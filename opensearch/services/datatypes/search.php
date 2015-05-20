@@ -18,8 +18,8 @@ $offset = 0;
 $constraints = array();
 
 // Get the creation year constraints from the request url
-if (@$_GET['creationyear'] && @$_GET['creationyear'] != '') {
-    $constraints['creationyear'] = explode(";",$_GET['creationyear']);
+if (@$_GET['creationYear'] && @$_GET['creationYear'] != '') {
+    $constraints['creationYear'] = explode(";",$_GET['creationYear']);
 }
 
 // Get the creator constraints from the request url
@@ -33,13 +33,13 @@ if (@$_GET['parameter'] && @$_GET['parameter'] != '') {
 }
 
 // Get the source standard constraints from the request url
-if (@$_GET['sourcestandard'] && @$_GET['sourcestandard'] != '') {
-    $constraints['sourcestandard'] = explode(";",$_GET['sourcestandard']);
+if (@$_GET['sourceStandard'] && @$_GET['sourceStandard'] != '') {
+    $constraints['sourceStandard'] = explode(";",$_GET['sourceStandard']);
 }
 
 // Get the subject area constraints from the request url
-if (@$_GET['subjectarea'] && @$_GET['subjectarea'] != '') {
-    $constraints['subjectarea'] = explode(";",$_GET['subjectarea']);
+if (@$_GET['subjectArea'] && @$_GET['subjectArea'] != '') {
+    $constraints['subjectArea'] = explode(";",$_GET['subjectArea']);
 }
 
 // Get the number of results displayed on each page from the request url

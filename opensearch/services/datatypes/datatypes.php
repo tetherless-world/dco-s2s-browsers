@@ -178,9 +178,9 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 		}
 
 		// Source Standard
-		if (isset($result['sourcestandard'])) {
+		if (isset($result['sourceStandard'])) {
 			$html .= "<br /><span>Source Standard: ";
-			$sourceStandard_arr = explode(",", $result['sourcestandard']);
+			$sourceStandard_arr = explode(",", $result['sourceStandard']);
 			$sourceStandard_label_arr = explode(",", $result['sourceStandard_label']);
 			$sourceStandard_markup = array();
 			foreach ($group_arr as $i => $sourceStandard) {
@@ -365,7 +365,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 		
 		$body = "";
 		switch($constraint_type) {
-			case "creationyear":
+			case "creationYear":
 				$body .= "{ ?datatype dco:createdAtTime <$constraint_value> }";
 				break;
 			case "creator":
@@ -375,10 +375,10 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 			case "parameter":
 				$body .= "{ ?datatype dco:hasParameter [rdfs:label <$constraint_value>] }";
 				break;
-			case "sourcestandard":
+			case "sourceStandard":
 				$body .= "{ ?datatype dco:sourceStandard [rdfs:label <$constraint_value>] }";
 				break;
-			case "subjectarea":
+			case "subjectArea":
 				$body .= "{ ?datatype vivo:hasSubjectArea <$constraint_value> }";
 				break;
 			default:
@@ -398,7 +398,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
      */
 	private function addContextLinks(&$results, $type) {
 		
-		if ($type == "creationyear" || $type == "creator" || $type == "parameter" || $type == "sourcestandard" || $type == "subjectarea") {
+		if ($type == "creationYear" || $type == "creator" || $type == "parameter" || $type == "sourceStandard" || $type == "subjectArea") {
 			foreach ( $results as $i => $result ) {
 				$results[$i]['context'] = $result['id']; 
 			}
