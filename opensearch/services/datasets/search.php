@@ -42,6 +42,11 @@ if (@$_GET['years'] && @$_GET['years'] != '') {
     $constraints['years'] = explode(";",$_GET['years']);
 }
 
+// Get the data type constraints from the request url
+if (@$_GET['datatypes'] && @$_GET['datatypes'] != '') {
+    $constraints['datatypes'] = explode(";",$_GET['datatypes']);
+}
+
 // Get the number of results displayed on each page from the request url
 if (@$_GET['limit'] && @$_GET['limit'] != '') {
     $limit = $_GET['limit'];
