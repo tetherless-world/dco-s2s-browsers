@@ -27,7 +27,7 @@
   <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/publications/search.php?request=publications&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;years={dco:Years?}&amp;concepts={dco:Concepts?}&amp;limit={count}&amp;offset={startIndex}" />
   <LongName>DCO Data Portal Publication Search Service</LongName>
   <Query role="example" geo:box="140,10,145,15"></Query>
-  <Developer>DCO Data Science Development Team</Developer>
+  <Developer>DCO Data Science Team</Developer>
   <Attribution></Attribution>
   <SyndicationRight>open</SyndicationRight>
   <AdultContent>false</AdultContent>
