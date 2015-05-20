@@ -25,7 +25,7 @@
   <Url type="application/json" rel="bcodmo:BcoDmoMapperQuery" template="http://aquarius.tw.rpi.edu/s2s/BCO-DMO/1.0/search.php?request=mapper&amp;bbox={geo:box?}&amp;startDate={time:start?}&amp;endDate={time:end?}&amp;programs={bcodmo:Programs?}&amp;projects={bcodmo:Projects?}&amp;instruments={bcodmo:Instruments?}&amp;people={bcodmo:People?}&amp;deployments={bcodmo:Deployments?}&amp;awards={bcodmo:Awards?}&amp;parameters={bcodmo:Parameters?}&amp;instcats={bcodmo:InstrumentCategories?}&amp;platforms={bcodmo:Platforms?}&amp;paramcats={bcodmo:ParameterCategories?}" />
 -->
   <LongName>DCO Data Portal Dataset Search Service</LongName>
-  <Developer>DCO Data Science Development Team</Developer>
+  <Developer>DCO Data Science Team</Developer>
   <Attribution></Attribution>
   <SyndicationRight>open</SyndicationRight>
   <AdultContent>false</AdultContent>
