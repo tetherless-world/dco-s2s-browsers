@@ -26,7 +26,7 @@
     <Url type="application/json" rel="dco:ReportingYearsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/field_studies/search.php?request=reportingYears&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}" />
   <Url type="application/json" rel="dco:ResultsMapQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/field_studies/search.php?request=field_studies_open_to_journalists_map&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}&amp;limit={count}&amp;offset={startIndex}" />
   <LongName>DCO Data Portal Field Study Search Service</LongName>
-  <Developer>DCO Data Science Development Team</Developer>
+  <Developer>DCO Data Science Team</Developer>
   <Attribution></Attribution>
   <SyndicationRight>open</SyndicationRight>
   <AdultContent>false</AdultContent>
