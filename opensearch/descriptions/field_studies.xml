@@ -14,7 +14,7 @@
   study, and end date of the field study), the result set, and a map
   displaying the locations of the result field studies.</Description>
   <Tags></Tags>
-  <Contact>Han Wang</Contact>
+  <Contact>web@mail.deepcarbon.net</Contact>
   <Url type="application/json" rel="dco:ParticipantsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/field_studies/search.php?request=participants&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
   <Url type="application/json" rel="dco:CommunitiesQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/field_studies/search.php?request=communities&amp;participants={dco:Participants?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
   <Url type="application/json" rel="dco:GroupsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/field_studies/search.php?request=groups&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
@@ -25,7 +25,7 @@
     <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/field_studies/search.php?request=field_studies&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}&amp;limit={count}&amp;offset={startIndex}" />
   <Url type="application/json" rel="dco:ResultsMapQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/field_studies/search.php?request=field_studies_map&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}&amp;limit={count}&amp;offset={startIndex}" />
   <LongName>DCO Data Portal Field Study Search Service</LongName>
-  <Developer>John Erickson</Developer>
+  <Developer>DCO Data Science Development Team</Developer>
   <Attribution></Attribution>
   <SyndicationRight>open</SyndicationRight>
   <AdultContent>false</AdultContent>
