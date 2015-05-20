@@ -60,10 +60,10 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 		$query .= "SELECT DISTINCT ?uri ?label ?unit WHERE { ";
 		$query .= "<$datatype> dco:hasParameter ?uri . ";
 		$query .= "?uri a dco:Parameter . ";
-		$query .= "?uri rdfs:label ?label . ";
-		$query .= "?uri dco:hasUnit ?unit . ";
-		$query .= "BIND(str(?label) AS ?label) . ";
-		$query .= "BIND(str(?unit) AS ?unit) } ";
+		$query .= "?uri rdfs:label ?l . ";
+		$query .= "?uri dco:hasUnit ?u . ";
+		$query .= "BIND(str(?l) AS ?label) . ";
+		$query .= "BIND(str(?u) AS ?unit) } ";
 		return $this->sparqlSelect($query);
 	}
 
@@ -75,10 +75,11 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 	private function getSubjectAreaByDatatype($datatype) {
 
 		$query = $this->getPrefixes();
-		$query .= "SELECT DISTINCT ?concept WHERE { ";
-		$query .= "<$datatype> vivo:hasSubjectArea ?concept . ";
-		$query .= "?concept a skos:Concept . ";
-		$query .= "?BIND(str(?concept) AS ?concept) } ";
+		$query .= "SELECT DISTINCT ?uri ?label WHERE { ";
+		$query .= "<$datatype> dco:dataTypeSubjectArea ?uri . ";
+		$query .= "?uri a skos:Concept . ";
+		$query .= "?uri rdfs:label ?l . ";
+		$query .= "?BIND(str(?l) AS ?label) } ";
 		return $this->sparqlSelect($query);
 	}
 
@@ -90,12 +91,12 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 	private function getDatasetsByDatatype($datatype) {
 
 		$query = $this->getPrefixes();
-		$query .= "SELECT DISTINCT ?uri ?label WHERE { ";
-		$query .= "?d dco:hasDataType <$datatype> . ";
-		$query .= "?d a vivo:Dataset . ";
-		$query .= "?d dco:hasDcoId ?uri . ";
-		$query .= "?d rdfs:label ?label . ";
-		$query .= "BIND(str(?label) AS ?label) } ";
+		$query .= "SELECT DISTINCT ?uri ?id ?label WHERE { ";
+		$query .= "?uri dco:hasDataType <$datatype> . ";
+		$query .= "?uri a vivo:Dataset . ";
+		$query .= "?uri dco:hasDcoId ?id . ";
+		$query .= "?uri rdfs:label ?l . ";
+		$query .= "BIND(str(?l) AS ?label) } ";
 		return $this->sparqlSelect($query);
 	}
 
@@ -107,16 +108,16 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 	private function getDetailsOfDatatype($datatype) {
 
 		$query = $this->getPrefixes();
-		$query .= "SELECT DISTINCT ?uri ?label ?creationTime ?lastModifiedTime ?expectedUses WHERE { ";
-		$query .= "<$datatype> dco:hasDcoId ?uri . ";
-		$query .= "<$datatype> rdfs:label ?label . ";
-		$query .= "<$datatype> dco:createdAtTime ?creationTime . ";
-		$query .= "<$datatype> dco:lastModifiedAtTime ?lastModifiedTime . ";
-		$query .= "<$datatype> dco:expectedUses ?expectedUses . ";
-		$query .= "BIND(str(?label) AS ?label) . ";
-		$query .= "BIND(str(?creationTime) AS ?creationTime) . ";
-		$query .= "BIND(str(?lastModifiedTime) AS ?lastModifiedTime) . ";
-		$query .= "BIND(str(?expectedUses) AS ?expectedUses) } ";
+		$query .= "SELECT DISTINCT ?id ?label ?creationTime ?lastModifiedTime ?expectedUses WHERE { ";
+		$query .= "<$datatype> dco:hasDcoId ?id . ";
+		$query .= "<$datatype> rdfs:label ?l . ";
+		$query .= "<$datatype> dco:createdAtTime ?ct . ";
+		$query .= "<$datatype> dco:lastModifiedAtTime ?lt . ";
+		$query .= "<$datatype> dco:expectedUses ?eu . ";
+		$query .= "BIND(str(?l) AS ?label) . ";
+		$query .= "BIND(str(?ct) AS ?creationTime) . ";
+		$query .= "BIND(str(?lt) AS ?lastModifiedTime) . ";
+		$query .= "BIND(str(?eu) AS ?expectedUses) } ";
 		return $this->sparqlSelect($query);
 	}
 
@@ -171,7 +172,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 			$html .= "<br /><span>Details: ";
 			$datatypeDetails_markup = array();
 				foreach($datatypeDetails as $key => $datatypeDetail){
-					array_push($datatypeDetails_markup, "<a target='_blank' href=\"" . $datatypeDetail['uri'] . "\">" . $datatypeDetail['label'] . "</a>", "<br>" . $datatypeDetail['creationTime'], "<br>" . $datatypeDetail['lastModifiedTime'], "<br>" . $datatypeDetail['expectedUses']);
+					array_push($datatypeDetails_markup, "<a target='_blank' href=\"" . $datatype_summary_url . "\">" . $datatypeDetail['label'] . "</a>", "<br>" . $datatypeDetail['id'], "<br>" . $datatypeDetail['creationTime'], "<br>" . $datatypeDetail['lastModifiedTime'], "<br>" . $datatypeDetail['expectedUses']);
 				}
 			$html .= implode('; ', $datatypeDetails_markup);
 			$html .= "</span>";
@@ -210,7 +211,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 			$html .= "<br /><span>Subject Area: ";
 			$subjectAreas_markup = array();
 				foreach($subjectAreas as $key => $subjectArea){
-					array_push($subjectAreas_markup, $subjectArea['concept']);
+					array_push($subjectAreas_markup, "<a target='_blank' href=\"" . $subjectArea['uri'] . "\">" . $subjectArea['label'] . "</a>");
 				}
 			$html .= implode('; ', $subjectAreas_markup);
 			$html .= "</span>";
@@ -222,7 +223,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 			$html .= "<br /><span>Datasets: ";
 			$datasets_markup = array();
 				foreach($datasets as $key => $dataset){
-					array_push($datasets_markup, "<a target='_blank' href=\"" . $dataset['uri'] . "\">" . $dataset['label'] . "</a>");
+					array_push($datasets_markup, "<a target='_blank' href=\"" . $dataset['uri'] . "\">" . $dataset['label'] . "</a>", "<br>" . $dataset['id']);
 				}
 			$html .= implode('; ', $datasets_markup);
 			$html .= "</span>";
@@ -248,14 +249,17 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 		switch($type) {
 			case "datatypes":
 				$header .= "?datatype ?dco_id ?label ?year ?parameterLabel ?access ";
-				$header .= '(GROUP_CONCAT(DISTINCT ?creator ; SEPARATOR=",") AS ?creator) ';
-				$header .= '(GROUP_CONCAT(DISTINCT ?creator_label ; SEPARATOR=",") AS ?creator_label) ';
-				$header .= '(GROUP_CONCAT(DISTINCT ?sourceStandard ; SEPARATOR=",") AS ?sourceStandard) ';
-                $header .= '(GROUP_CONCAT(DISTINCT ?sourceStandard_label ; SEPARATOR=",") AS ?sourceStandard_label) ';
+				$header .= '(GROUP_CONCAT(DISTINCT ?cr ; SEPARATOR=",") AS ?creator) ';
+				$header .= '(GROUP_CONCAT(DISTINCT ?cr_label ; SEPARATOR=",") AS ?creator_label) ';
+				$header .= '(GROUP_CONCAT(DISTINCT ?st ; SEPARATOR=",") AS ?sourceStandard) ';
+                $header .= '(GROUP_CONCAT(DISTINCT ?st_label ; SEPARATOR=",") AS ?sourceStandard_label) ';
 				break;
 			case "count":
 				$header .= "(count(DISTINCT ?datatype) AS ?count)";
 				break;
+			case "creationYear":
+    			$header .= '?year' ;
+    			break;
 			default:
 				$header .= "?id ?label (COUNT(DISTINCT ?datatype) AS ?count)";
 				break;
@@ -282,6 +286,9 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 				break;
 			case "count":
 				break;
+			case "creationYear":
+    			$footer .= " GROUP BY ?year";
+    			break;
 			default:
 				$footer .= " GROUP BY ?label ?id";
 				break;
@@ -306,29 +313,34 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 				
 			case "creator":
 				$body .= "?datatype a dco:DataType . ";
-				$body .= "?datatype prov:qualifiedAttribution [prov:hadRole ?r ] . ";
-				$body .= "?r a prov:Role . ";
-				$body .= "?c rdf:type ?r . ";
-				$body .= "?c a dco:creator . ";
-				$body .= "BIND(str(?c) AS ?creator) . ";
+				$body .= "?datatype prov:wasAttributedTo ?id . ";
+				$body .= "?id a prov:Agent . ";
+				$body .= "?id rdfs:label ?l . ";
+				$body .= "BIND(str(?l) AS ?label) . ";
 				break;
 
 			case "parameter":
 				$body .= "?datatype a dco:DataType . ";
-				$body .= "?datatype dco:hasParameter [rdfs:label ?l] . ";
-				$body .= "BIND(str(?l) AS ?parameterLabel) . ";
+				$body .= "?datatype dco:hasParameter ?id . ";
+				$body .= "?id a dco:Parameter . "
+				$body .= "?id rdfs:label ?l .";
+				$body .= "BIND(str(?l) AS ?label) . ";
 				break;
 
 			case "sourceStandard":
 				$body .= "?datatype a dco:DataType . ";
-				$body .= "?datatype dco:sourceStandard [rdfs:label ?l] . ";
-				$body .= "BIND(str(?l) AS ?sourceStandard_label) . ";
+				$body .= "?datatype dco:sourceStandard ?id . ";
+				$body .= "?id a bibo:Standard . ";
+				$body .= "?id rdfs:label ?l . ";
+				$body .= "BIND(str(?l) AS ?label) . ";
 				break;
 
 			case "subjectArea":
 				$body .= "?datatype a dco:DataType . ";
-				$body .= "?datatype vivo:hasSubjectArea ?s . ";
-				$body .= "?s a skos:Concept . ";
+				$body .= "?datatype dco:dataTypeSubjectArea ?id . ";
+				$body .= "?id a skos:Concept . ";
+				$body .= "?id rdfs:label ?l .";
+				$body .= "BIND(str(?l) AS ?label) . ";
 				break;
 
 			case "datatypes":
@@ -337,7 +349,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 				$body .= "OPTIONAL { ?datatype dco:hasDcoId ?id . } ";
 				$body .= "OPTIONAL { ?datatype dco:createdAtTime ?ct . } ";
 				$body .= "OPTIONAL { ?datatype dco:lastModifiedAtTIme ?mt . } ";
-				$body .= "OPTIONAL { ?datatype dco:sourceStandard ?source . ?source rdfs:label ?sl . } ";
+				$body .= "OPTIONAL { ?datatype dco:sourceStandard ?st . ?st rdfs:label ?st_label . } ";
 				$body .= "OPTIONAL { ?datatype dco:expectedUses ?use . } ";
 				$body .= "OPTIONAL { ?datatype dco:hasParameter ?param . ?param rdfs:label ?pl . } ";
 				$body .= "OPTIONAL { ?datatype dco:sourceDataType ?s . ?s rdfs:label ?sourceLabel . } ";
@@ -345,7 +357,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 				$body .= "BIND(str(?id) AS ?dco_id) . ";
 				$body .= "BIND(str(?ct) AS ?createdTime) . ";
 				$body .= "BIND(str(?mt) AS ?modifiedTime) . ";
-				$body .= "BIND(str(?sl) AS ?sourceStandard_label) . ";
+				$body .= "BIND(str(?sl) AS ?st_label) . ";
 				$body .= "BIND(str(?use) AS ?use) . ";
 				$body .= "BIND(str(?pl) AS ?parameterLabel) . ";
 				$body .= "BIND(str(?sourceLabel) AS ?sourceDataTypeLabel) . ";
@@ -369,17 +381,16 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 				$body .= "{ ?datatype dco:createdAtTime <$constraint_value> }";
 				break;
 			case "creator":
-				$body .= "{ ?datatype prov:qualifiedAttribution [prov:hadRole ?role] . ";
-				$body .= "{ <$constraint_value> rdf:type ?role }";
+				$body .= "{ ?datatype prov:wasAttributedTo <$constraint_value> } ";
 				break;
 			case "parameter":
-				$body .= "{ ?datatype dco:hasParameter [rdfs:label <$constraint_value>] }";
+				$body .= "{ ?datatype dco:hasParameter <$constraint_value> }";
 				break;
 			case "sourceStandard":
-				$body .= "{ ?datatype dco:sourceStandard [rdfs:label <$constraint_value>] }";
+				$body .= "{ ?datatype dco:sourceStandard <$constraint_value> }";
 				break;
 			case "subjectArea":
-				$body .= "{ ?datatype vivo:hasSubjectArea <$constraint_value> }";
+				$body .= "{ ?datatype dco:dataTypeSubjectArea <$constraint_value> }";
 				break;
 			default:
 				break;
