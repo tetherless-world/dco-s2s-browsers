@@ -298,7 +298,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 		
 		$body = "";
 		switch($type) {
-			case "creationyear":
+			case "creationYear":
 				$body .= "?datatype a dco:DataType . ";
 				$body .= "?datatype  dco:createdAtTime ?t . ";
 				$body .= "BIND(str(?t) AS ?year) . ";
@@ -319,13 +319,13 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 				$body .= "BIND(str(?l) AS ?parameterLabel) . ";
 				break;
 
-			case "sourcestandard":
+			case "sourceStandard":
 				$body .= "?datatype a dco:DataType . ";
 				$body .= "?datatype dco:sourceStandard [rdfs:label ?l] . ";
 				$body .= "BIND(str(?l) AS ?sourceStandard_label) . ";
 				break;
 
-			case "subjectarea":
+			case "subjectArea":
 				$body .= "?datatype a dco:DataType . ";
 				$body .= "?datatype vivo:hasSubjectArea ?s . ";
 				$body .= "?s a skos:Concept . ";
