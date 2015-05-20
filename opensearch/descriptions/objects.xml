@@ -12,12 +12,12 @@
   of objects to be returned, the communities the objects are related to)
   and the result set listing the objects.</Description>
   <Tags></Tags>
-  <Contact>Han Wang</Contact>
+  <Contact>web@mail.deepcarbon.net</Contact>
   <Url type="application/json" rel="dco:TypesQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/objects/search.php?request=types&amp;communities={dco:Communities?}" />
   <Url type="application/json" rel="dco:CommunitiesQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/objects/search.php?request=communities&amp;types={dco:Types?}" />
   <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/objects/search.php?request=objects&amp;types={dco:Types?}&amp;communities={dco:Communities?}&amp;limit={count}&amp;offset={startIndex}" />
   <LongName>DCO Data Portal Object Search Service</LongName>
-  <Developer>Han Wang</Developer>
+  <Developer>DCO Data Science Development Team</Developer>
   <Attribution></Attribution>
   <SyndicationRight>open</SyndicationRight>
   <AdultContent>false</AdultContent>
