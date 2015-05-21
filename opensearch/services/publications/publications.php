@@ -31,7 +31,7 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 	* @return string SPARQL endpoint URL
 	*/
 	public function getEndpoint() {
-		return "http://deepcarbon.tw.rpi.edu:3030/VIVO/query";
+		return "http://fuseki:3030/vivo/query";
 	}
 
 	/**
