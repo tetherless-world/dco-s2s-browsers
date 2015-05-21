@@ -15,11 +15,11 @@
   the constraints.</Description>
   <Tags></Tags>
   <Contact>web@mail.deepcarbon.net</Contact>
-  <Url type="application/json" rel="dco:WmsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/people/search.php?request=box&amp;names={dco:SearchNames?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;organizations={dco:Organizations?}" />
-  <Url type="application/json" rel="dco:CommunitiesQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/people/search.php?request=communities&amp;names={dco:SearchNames?}&amp;groups={dco:Groups?}&amp;organizations={dco:Organizations?}&amp;box={dco:box?}" />
-  <Url type="application/json" rel="dco:GroupsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/people/search.php?request=groups&amp;names={dco:SearchNames?}&amp;communities={dco:Communities?}&amp;organizations={dco:Organizations?}&amp;box={dco:box?}" />
-  <Url type="application/json" rel="dco:OrganizationsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/people/search.php?request=organizations&amp;names={dco:SearchNames?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;box={dco:box?}" />
-  <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/people/search.php?request=people&amp;names={dco:SearchNames?}&amp;box={dco:box?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;organizations={dco:Organizations?}&amp;limit={count}&amp;offset={startIndex}" />
+  <Url type="application/json" rel="dco:WmsQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=box&amp;names={dco:SearchNames?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;organizations={dco:Organizations?}" />
+  <Url type="application/json" rel="dco:CommunitiesQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=communities&amp;names={dco:SearchNames?}&amp;groups={dco:Groups?}&amp;organizations={dco:Organizations?}&amp;box={dco:box?}" />
+  <Url type="application/json" rel="dco:GroupsQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=groups&amp;names={dco:SearchNames?}&amp;communities={dco:Communities?}&amp;organizations={dco:Organizations?}&amp;box={dco:box?}" />
+  <Url type="application/json" rel="dco:OrganizationsQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=organizations&amp;names={dco:SearchNames?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;box={dco:box?}" />
+  <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=people&amp;names={dco:SearchNames?}&amp;box={dco:box?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;organizations={dco:Organizations?}&amp;limit={count}&amp;offset={startIndex}" />
   <LongName>DCO Data Portal Person Search Service</LongName>
   <Developer>DCO Data Science Team</Developer>
   <Attribution></Attribution>
