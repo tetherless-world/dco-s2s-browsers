@@ -6,7 +6,9 @@ include_once("../../../s2s/opensearch/utils.php");
 include_once("../../../s2s/opensearch/config.php");
 
 class DCO_FieldStudies_S2SConfig extends S2SConfig {
-	
+
+	public $VIVO_URL_PREFIX = "http://info.deepcarbon.net/vivo/individual";
+
 	private $namespaces = array(
 		'dco'	=> "http://info.deepcarbon.net/schema#",
 		'vivo'	=> "http://vivoweb.org/ontology/core#",
@@ -188,7 +190,7 @@ class DCO_FieldStudies_S2SConfig extends S2SConfig {
 			$html .= "<br /><span>Investigators: ";
 			$investigators_markup = array();
 			foreach ($investigators as $i => $investigator) {
-				$vivo_url = $VIVO_URL_PREFIX . substr($investigator['uri'], strripos($investigator['uri'], '/')); 
+				$vivo_url = $this->VIVO_URL_PREFIX . substr($investigator['uri'], strripos($investigator['uri'], '/'));
 				array_push($investigators_markup, "<a target='_blank' href=\"" . $vivo_url . "\">" . $investigator['name'] . "</a>");
 			}
 			$html .= implode('; ', $investigators_markup);
@@ -201,7 +203,7 @@ class DCO_FieldStudies_S2SConfig extends S2SConfig {
 			$html .= "<br /><span>Team Members: ";
 			$members_markup = array();
 			foreach ($members as $i => $member) {
-				$vivo_url = $VIVO_URL_PREFIX . substr($member['uri'], strripos($member['uri'], '/'));
+				$vivo_url = $this->VIVO_URL_PREFIX . substr($member['uri'], strripos($member['uri'], '/'));
 				array_push($members_markup, "<a target='_blank' href=\"" . $vivo_url . "\">" . $member['name'] . "</a>");
 			}
 			$html .= implode('; ', $members_markup);
@@ -297,7 +299,7 @@ class DCO_FieldStudies_S2SConfig extends S2SConfig {
 			$leaders = $this->getLeadersByFieldStudy($result['field_study']);
 			if (count($leaders) > 0) {
 				$leaders_html = array();
-				foreach ($leaders as $i => $l) {
+				foreach ($leaders as $j => $l) {
 					$html = "<a href=\"" . $l['uri'] . "\" target=\"_blank\">" . $l['label'] . "</a>";
 					array_push($leaders_html, $html);
 				}
@@ -310,7 +312,7 @@ class DCO_FieldStudies_S2SConfig extends S2SConfig {
 				$comm_arr = explode(",", $result['community']);
                         	$comm_label_arr = explode(",", $result['community_label']);
 				$communities_html = array();
-				foreach ($comm_arr as $i => $c) {
+				foreach ($comm_arr as $j => $c) {
 					$html = "<a href=\"". $c . "\" target=\"_blank\">" . $comm_label_arr[$i] . "</a>";
 					array_push($communities_html, $html);
 				}
@@ -323,7 +325,7 @@ class DCO_FieldStudies_S2SConfig extends S2SConfig {
 				$gp_arr = explode(",", $result['group']);
                         	$gp_label_arr = explode(",", $result['group_label']);
 				$groups_html = array();
-				foreach ($gp_arr as $i => $g) {
+				foreach ($gp_arr as $j => $g) {
 					$html = "<a href=\"" . $g . "\" target=\"_blank\">" . $gp_label_arr[$i] . "</a>";
 					array_push($groups_html, $html);
 				}
@@ -334,7 +336,7 @@ class DCO_FieldStudies_S2SConfig extends S2SConfig {
 			$field_sites = $this->getFieldSitesByFieldStudy($result['field_study']);
 			$new_result['field_sites'] = array();
 			if (count($field_sites) > 0) {
-				foreach($field_sites as $i => $fs) {
+				foreach($field_sites as $j => $fs) {
 					$field_site = array();
 					$field_site['label'] = "<p>Field site: <a href=\"" . $fs['uri'] . "\" target=\"_blank\">" . $fs['label'] . "</a></p>";
 					$fs_info = $this->getFieldSiteInfo($fs['uri']);
