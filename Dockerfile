@@ -33,7 +33,7 @@ COPY ontologies/ ${SERVICE_HOME}/ontologies/
 COPY js/ ${SERVICE_HOME}/js/
 COPY css/ ${SERVICE_HOME}/css/
 
-COPY s2s/opensearch/ ${SERVICE_HOME}/
+COPY s2s/opensearch/ ${SERVICE_HOME}/s2s/opensearch/
 COPY s2s/client/ ${SERVICE_HOME}/s2s/client/
 
 #TODO update RDF URIs with sed
