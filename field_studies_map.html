@@ -33,7 +33,7 @@
 			$(document).ready(function() {
 		                //Be sure to change the URI argument of the SearchService constructor to your service URI.
 				//Rather than configuring the service through an XML file, it can be done with a JSON object
-				var s2sConfOntURI = 'http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#';
+				var s2sConfOntURI = 'http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#';
 				var s2sCoreOntURI = 'http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/';
 				var config = {
 					'paradigm' : 'http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchicalSearch',
@@ -61,7 +61,7 @@
 	        <!-- The name attribute of this <div> specifies where UI components belonging to the named service -->
 		<!-- will be placed.  If you change the name of the service, in the $.ready() function, be sure to -->
                 <!-- adjust the name of this <div> as well. -->
-		<div name="http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#FieldStudyMapSearchService">
+		<div name="http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#FieldStudyMapSearchService">
 			<table>
 				<tbody>
 					<tr>
@@ -70,8 +70,8 @@
 						<!-- Change the values of the two hidden inputs to specify your results query -->
 						<!-- interface and the widget you wish to use to render the results. -->
 						<td class="s2s-widget-panel" style="vertical-align:top">
-							<input type="hidden" name="interface" value="http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#ResultsMapQuery" />
-							<input type="hidden" name="widget" value="http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#ResultsMapWidget" />
+							<input type="hidden" name="interface" value="http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#ResultsMapQuery" />
+							<input type="hidden" name="widget" value="http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#ResultsMapWidget" />
 						</td>
 					</tr>
 				</tbody>
