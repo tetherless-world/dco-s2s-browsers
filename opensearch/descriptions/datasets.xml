@@ -2,7 +2,7 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
 	xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
 	xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
-	xmlns:dco="http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#"
+	xmlns:dco="http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#"
 	xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
 
   <ShortName>DCO Data Portal Dataset Search</ShortName>
