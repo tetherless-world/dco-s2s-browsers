@@ -3,9 +3,7 @@ MAINTAINER Stephan Zednik "zednis2@rpi.edu"
 ENV REFRESHED_AT 2015-05-21
 
 ENV WWW_DATA /var/www/html
-ENV SERVICE_HOME ${WWW_DATA}/search
-
-RUN mkdir -p ${WWW_DATA}/browser
+ENV SERVICE_HOME ${WWW_DATA}/browsers
 
 ADD datasets.html ${SERVICE_HOME}/
 ADD opensearch/descriptions/datasets.xml ${SERVICE_HOME}/opensearch/descriptions/datasets.xml
