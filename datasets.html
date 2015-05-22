@@ -36,24 +36,14 @@
 					'inputs' : [
 						{'name' : s2sConfOntURI + 'Years', 'enabled' : true, 'widget' : s2sConfOntURI + 'DescendingContextSelect'},
 						{'name' : s2sConfOntURI + 'Authors', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},
-						{'name' : s2sConfOntURI + 'OtherAuthors', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},
+						/*{'name' : s2sConfOntURI + 'OtherAuthors', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},*/
 						{'name' : s2sConfOntURI + 'Communities', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},
 						{'name' : s2sConfOntURI + 'Groups', 'enabled' : false, 'widget' : s2sConfOntURI + 'ContextSelect'},
 						{'name' : s2sConfOntURI + 'Projects', 'enabled' : false, 'widget' : s2sConfOntURI + 'ContextSelect'},
-						{'name' : s2sConfOntURI + 'DataType', 'enabled' : false, 'widget' : s2sConfOntURI + 'ContextSelect'},
-						//{'name' : 'http://a9.com/-/opensearch/extensions/geo/1.0/box', 'enabled' : true, 'widget' : 'http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox'},
-						//{'name' : 'http://a9.com/-/opensearch/extensions/time/1.0/start', 'ignore' : true, 'widget' : 'http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget'},
-						//{'name' : 'http://a9.com/-/opensearch/extensions/time/1.0/end', 'ignore' : true, 'widget' : 'http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget'},
-						{'name' : 'http://a9.com/-/spec/opensearch/1.1/count', 'ignore' : true},
-						{'name' : 'http://a9.com/-/spec/opensearch/1.1/startIndex', 'ignore' : true}
+						{'name' : s2sConfOntURI + 'DataType', 'enabled' : false, 'widget' : s2sConfOntURI + 'ContextSelect'}
 					]
 				}
 				var service = new s2s.SearchService(s2sConfOntURI + 'DatasetSearchService', config);
-		                var callback = function(response) {}
-		                //var intrfc = s2sConfOntURI + 'BcoDmoMapperQuery';
-		                var hook = new s2s.utils.HookPanel(null, callback);
-		                service.addPanel(hook);
-		                hook.update({});
 			});
 		})(edu.rpi.tw.sesf.s2s,jQuery);
 		</script>

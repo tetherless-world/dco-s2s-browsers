@@ -6,10 +6,10 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix core:    <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> .
-@prefix geo:	 <http://a9.com/-/opensearch/extensions/geo/1.0/> .
 
 <http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl> 
     dc:creator "Han Wang"^^xsd:string ;
+    dc:contributor "Stephan Zednik"^^xsd:string ;
     a owl:Ontology ;
     rdfs:comment "An ontology describing the metadata for the DCO Data Portal s2s search services."^^xsd:string ;
     owl:imports <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> ;
@@ -248,14 +248,14 @@
     s2s:hasOutput core:LabelIdContextCountJsonArray ;
     a s2s:InputValuesInterface, owl:Thing .
 
-geo:box
+:box
     core:hasDelimiter ";"^^xsd:string ;
     a s2s:Input, owl:Thing ;
     rdfs:comment "A search parameter for data realted to any input bounding box."^^xsd:string ;
     rdfs:label "Geographic Region"^^xsd:string .
 
 :WmsQuery
-    s2s:forInput geo:box ;
+    s2s:forInput :box ;
     s2s:hasOutput core:WmsUrl ;
     a s2s:InputValuesInterface, owl:Thing .
 
@@ -288,7 +288,7 @@ geo:box
 :WmsOpenLayersBoundingBox
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.WmsOpenLayersBoundingBox"^^xsd:string ;
     core:requiresJavaScript "http://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI, "http://openlayers.org/api/OpenLayers.js"^^xsd:anyURI ;
-    s2s:supportsInput geo:box ;
+    s2s:supportsInput :box ;
     s2s:supportsOutput core:WmsUrl ;
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A s2s:InputWidget for selecting the geo:box parameter and using a dynamic WMS response to provide map context."^^xsd:string ;
