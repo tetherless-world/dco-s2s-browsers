@@ -125,6 +125,11 @@ class DCO_People_S2SConfig extends S2SConfig {
 	*/
 	public function getSearchResultOutput(array $result) {
 
+		if( !isset( $result['person'] ) )
+		{
+		    return "" ;
+		}
+
 		$html = "<div class='result-list-item'>";
 
                 // initially set the link to the person's VIVO page but if
