@@ -287,7 +287,8 @@
 
 :WmsOpenLayersBoundingBox
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.WmsOpenLayersBoundingBox"^^xsd:string ;
-    core:requiresJavaScript "https://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI, "http://openlayers.org/api/OpenLayers.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI ,
+        "https://data.deepcarbon.net/browsers/js/OpenLayers-2.13.1/OpenLayers.js"^^xsd:anyURI ;
     s2s:supportsInput :box ;
     s2s:supportsOutput core:WmsUrl ;
     a core:JavaScriptWidget, s2s:InputWidget ;
