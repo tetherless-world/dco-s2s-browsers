@@ -3,7 +3,7 @@
      * Globals
      */
 
-    s2s.utils.servletRoot = "http://data.deepcarbon.net/s2s/";
+    s2s.utils.servletRoot = "https://data.deepcarbon.net/s2s/";
     s2s.utils.metadataService = s2s.utils.servletRoot + "metadata";
     s2s.utils.proxyService = s2s.utils.servletRoot + "proxy";
     s2s.utils.sessionService = s2s.utils.servletRoot + "session";

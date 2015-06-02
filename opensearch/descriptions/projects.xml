@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
-	xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
-	xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
-	xmlns:dco="http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#"
-	xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+<OpenSearchDescription
+        xmlns="http://a9.com/-/spec/opensearch/1.1/"
+        xmlns:dco="https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#">
 
   <ShortName>DCO Data Portal Project Search</ShortName>
   <Description>DCO Data Portal Project Search Service, displaying the
@@ -16,14 +14,14 @@
   the constraints.</Description>
   <Tags></Tags>
   <Contact>web@mail.deepcarbon.net</Contact>
-  <Url type="application/json" rel="dco:ParticipantsQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=participants&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
-  <Url type="application/json" rel="dco:CommunitiesQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=communities&amp;participants={dco:Participants?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
-  <Url type="application/json" rel="dco:GroupsQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=groups&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
-  <Url type="application/json" rel="dco:GrantsQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=grants&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
-  <Url type="application/json" rel="dco:StartDateQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=startDate&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
-  <Url type="application/json" rel="dco:EndDateQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=EndDate&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;reportingYears={dco:ReportingYears?}" />
-    <Url type="application/json" rel="dco:ReportingYearsQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=reportingYears&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}" />
-  <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=projects&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}&amp;limit={count}&amp;offset={startIndex}" />
+  <Url type="application/json" rel="dco:ParticipantsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=participants&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
+  <Url type="application/json" rel="dco:CommunitiesQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=communities&amp;participants={dco:Participants?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
+  <Url type="application/json" rel="dco:GroupsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=groups&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
+  <Url type="application/json" rel="dco:GrantsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=grants&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
+  <Url type="application/json" rel="dco:StartDateQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=startDate&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
+  <Url type="application/json" rel="dco:EndDateQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=EndDate&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;reportingYears={dco:ReportingYears?}" />
+    <Url type="application/json" rel="dco:ReportingYearsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=reportingYears&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}" />
+  <Url type="text/html" rel="dco:ResultsListQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/projects/search.php?request=projects&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}&amp;limit={count}&amp;offset={startIndex}" />
   <LongName>DCO Data Portal Project Search Service</LongName>
   <Developer>DCO Data Science Team</Developer>
   <Attribution></Attribution>

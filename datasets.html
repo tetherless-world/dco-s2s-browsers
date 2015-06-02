@@ -29,20 +29,19 @@
 			$(document).ready(function() {
 		                //Be sure to change the URI argument of the SearchService constructor to your service URI.
 				//Rather than configuring the service through an XML file, it can be done with a JSON object
-				var s2sConfOntURI = 'http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#';
+				var s2sConfOntURI = 'https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#';
 				var s2sCoreOntURI = 'http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/';
 				var config = {
 					'paradigm' : 'http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchicalSearch',
 					'inputs' : [
 						{'name' : s2sConfOntURI + 'Years', 'enabled' : true, 'widget' : s2sConfOntURI + 'DescendingContextSelect'},
 						{'name' : s2sConfOntURI + 'Authors', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},
-						/*{'name' : s2sConfOntURI + 'OtherAuthors', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},*/
 						{'name' : s2sConfOntURI + 'Communities', 'enabled' : true, 'widget' : s2sConfOntURI + 'ContextSelect'},
 						{'name' : s2sConfOntURI + 'Groups', 'enabled' : false, 'widget' : s2sConfOntURI + 'ContextSelect'},
 						{'name' : s2sConfOntURI + 'Projects', 'enabled' : false, 'widget' : s2sConfOntURI + 'ContextSelect'},
 						{'name' : s2sConfOntURI + 'DataType', 'enabled' : false, 'widget' : s2sConfOntURI + 'ContextSelect'}
 					]
-				}
+				};
 				var service = new s2s.SearchService(s2sConfOntURI + 'DatasetSearchService', config);
 			});
 		})(edu.rpi.tw.sesf.s2s,jQuery);
@@ -52,7 +51,7 @@
 	        <!-- The name attribute of this <div> specifies where UI components belonging to the named service -->
 		<!-- will be placed.  If you change the name of the service, in the $.ready() function, be sure to -->
                 <!-- adjust the name of this <div> as well. -->
-		<div name="http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#DatasetSearchService">
+		<div name="https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#DatasetSearchService">
 			<table>
 				<tbody>
 					<tr>
@@ -61,8 +60,8 @@
 						<!-- Change the values of the two hidden inputs to specify your results query -->
 						<!-- interface and the widget you wish to use to render the results. -->
 						<td class="s2s-widget-panel" style="vertical-align:top">
-							<input type="hidden" name="widget" value="http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#ResultsListWidget" />
-							<input type="hidden" name="interface" value="http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#ResultsListQuery" />
+							<input type="hidden" name="widget" value="https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#ResultsListWidget" />
+							<input type="hidden" name="interface" value="https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#ResultsListQuery" />
 						</td>
 					</tr>
 				</tbody>
