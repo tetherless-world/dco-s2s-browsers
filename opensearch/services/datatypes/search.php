@@ -52,7 +52,7 @@ if (@$_GET['offset'] && @$_GET['offset'] != '') {
     $offset = $_GET['offset'];
 }
 
-// Sorting is currently not enabled 
+// Sorting is currently not enabled
 /*
 if (@$_GET['sort'] && @$_GET['sort'] != '') {
     $sort = $_GET['sort'];
@@ -85,3 +85,4 @@ header("Content-length: $size");
 
 // echo the response
 echo $out;
+
