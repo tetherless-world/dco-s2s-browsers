@@ -56,7 +56,7 @@ edu.rpi.tw.sesf.s2s.widgets.DescendingContextSelect.prototype.update = function(
 	
 	for (var i = 0; i < data.length; ++i) {
 	    var item = data[i];
-		var infoButtonImg = "http://aquarius.tw.rpi.edu/s2s/2.0/ui/images/icon_info_gray.gif";
+		var infoButtonImg = "../images/icon_info_gray.gif";
 	    var label = (item['count'] != null) ? item['label'] + " (" + item['count'] + ") " : item['label'];
 	    var input;
 	    if (item['context'] != null) {
