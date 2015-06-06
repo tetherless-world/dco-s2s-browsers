@@ -13,7 +13,7 @@
   DCO authors of the datasets, non-DCO authors of the datasets, and the
   projects the datasets are related to), and the result set.</Description>
   <Tags></Tags>
-  <Contact>web@mail.deepcarbon.net</Contact>
+  <Contact>Han Wang</Contact>
   <Url type="application/json" rel="dco:YearsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=years&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;projects={dco:Projects?}&amp;datatypes={dco:DataType?}" />
   <Url type="application/json" rel="dco:CommunitiesQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=communities&amp;years={dco:Years?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;projects={dco:Projects?}&amp;datatypes={dco:DataType?}" />
   <Url type="application/json" rel="dco:GroupsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datasets/search.php?request=groups&amp;communities={dco:Communities?}&amp;years={dco:Years?}&amp;authors={dco:Authors?}&amp;projects={dco:Projects?}&amp;datatypes={dco:DataType?}" />
@@ -25,7 +25,7 @@
   <Url type="application/json" rel="bcodmo:BcoDmoMapperQuery" template="http://aquarius.tw.rpi.edu/s2s/BCO-DMO/1.0/search.php?request=mapper&amp;bbox={geo:box?}&amp;startDate={time:start?}&amp;endDate={time:end?}&amp;programs={bcodmo:Programs?}&amp;projects={bcodmo:Projects?}&amp;instruments={bcodmo:Instruments?}&amp;people={bcodmo:People?}&amp;deployments={bcodmo:Deployments?}&amp;awards={bcodmo:Awards?}&amp;parameters={bcodmo:Parameters?}&amp;instcats={bcodmo:InstrumentCategories?}&amp;platforms={bcodmo:Platforms?}&amp;paramcats={bcodmo:ParameterCategories?}" />
 -->
   <LongName>DCO Data Portal Dataset Search Service</LongName>
-  <Developer>DCO Data Science Team</Developer>
+  <Developer>Han Wang</Developer>
   <Attribution></Attribution>
   <SyndicationRight>open</SyndicationRight>
   <AdultContent>false</AdultContent>

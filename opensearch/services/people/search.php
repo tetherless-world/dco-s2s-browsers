@@ -42,6 +42,16 @@ if (@$_GET['organizations'] && @$_GET['organizations'] != '') {
 	$constraints["organizations"] = explode(";",$_GET['organizations']);
 }
 
+// Get the organization constraints from the request url
+if (@$_GET['members'] && @$_GET['members'] != '') {
+	$constraints["members"] = explode(";",$_GET['members']);
+}
+else
+{
+    $constraints["members"] = array() ;
+    $constraints["members"][0] = "members" ;
+}
+
 // Get the number of results displayed on each page from the request url
 if (@$_GET['limit'] && @$_GET['limit'] != '') {
     $limit = $_GET['limit'];

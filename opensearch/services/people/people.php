@@ -115,7 +115,8 @@ class DCO_People_S2SConfig extends S2SConfig {
 		$query = $this->getSelectQuery("count", $constraints);
 		$results = $this->sparqlSelect($query);
 		$result = $results[0];
-		return $result['count'];
+		$count = $result['count'] ;
+		return $count ;
 	}
 
 	/**
@@ -125,15 +126,19 @@ class DCO_People_S2SConfig extends S2SConfig {
 	*/
 	public function getSearchResultOutput(array $result) {
 
+        if( !isset( $result['person'] ) )
+        {
+            return "" ;
+        }
 		$html = "<div class='result-list-item'>";
 
-                // initially set the link to the person's VIVO page but if
-                // there's a dco_id use it instead.
-                $link = $result['person'] ;
+        // initially set the link to the person's VIVO page but if
+        // there's a dco_id use it instead.
+        $link = $result['person'] ;
 		if( isset( $result['dco_id'] ) )
-                {
-                    $link = $result['dco_id'] ;
-                }
+        {
+            $link = $result['dco_id'] ;
+        }
 
 		// thumbnail
 		if (isset($result['thumbnail'])) {
@@ -203,6 +208,12 @@ class DCO_People_S2SConfig extends S2SConfig {
 			$html .= "<br />Contact: <a href=\"mailto:" . $emails[0]['email'] . "\">Email</a>";
 		} 
 
+		// networkId
+		if( isset( $result['uid'] ) )
+		{
+		    $html .= "<br /><span>Id: " . $result['uid'] ;
+		}
+
 		$html .= "<br />";
 
 		// Affiliations
@@ -240,27 +251,29 @@ class DCO_People_S2SConfig extends S2SConfig {
 	* @param string $type search type (e.g. 'datasets', 'authors', 'keywords')
 	* @return string query header component (e.g. 'SELECT ?id ?label')
 	*/
-	public function getQueryHeader($type) {
-	
-		$header = "";
-		switch($type) {
-			case "people":
-				$header .= "?person ?dco_id ?label ?thumbnail ";
-				$header .= '(GROUP_CONCAT(DISTINCT ?comm ; SEPARATOR=",") AS ?community) ';
-				$header .= '(GROUP_CONCAT(DISTINCT ?comm_label ; SEPARATOR=",") AS ?community_label) ';
-				$header .= '(GROUP_CONCAT(DISTINCT ?gp ; SEPARATOR=",") AS ?group) ';
-                		$header .= '(GROUP_CONCAT(DISTINCT ?gp_label ; SEPARATOR=",") AS ?group_label) ';
-				$header .= '(GROUP_CONCAT(DISTINCT ?org ; SEPARATOR = ",") AS ?organization) ';
-				$header .= '(GROUP_CONCAT(DISTINCT ?org_label ; SEPARATOR = ",") AS ?organization_label) ';
-				break;
-			case "count":
-				$header .= "(count(DISTINCT ?person) AS ?count)";
-				break;
-			default:
-				$header .= "?id ?label (COUNT(DISTINCT ?person) AS ?count)";
-				break;
-		}
-		return $header;
+	public function getQueryHeader( $type )
+	{
+	    $header = "";
+	    switch($type)
+	    {
+		case "people":
+		    $header .= "?person ?dco_id ?label ?thumbnail ";
+		    $header .= '(GROUP_CONCAT(DISTINCT ?comm ; SEPARATOR=",") AS ?community) ';
+		    $header .= '(GROUP_CONCAT(DISTINCT ?comm_label ; SEPARATOR=",") AS ?community_label) ';
+		    $header .= '(GROUP_CONCAT(DISTINCT ?gp ; SEPARATOR=",") AS ?group) ';
+		    $header .= '(GROUP_CONCAT(DISTINCT ?gp_label ; SEPARATOR=",") AS ?group_label) ';
+		    $header .= '(GROUP_CONCAT(DISTINCT ?org ; SEPARATOR = ",") AS ?organization) ';
+		    $header .= '(GROUP_CONCAT(DISTINCT ?org_label ; SEPARATOR = ",") AS ?organization_label) ';
+		    $header .= '(GROUP_CONCAT(DISTINCT ?networkId ; SEPARATOR = ",") AS ?uid) ';
+		    break;
+		case "count":
+		    $header .= "(count(DISTINCT ?person) AS ?count)";
+		    break;
+		default:
+		    $header .= "?id ?label (COUNT(DISTINCT ?person) AS ?count)";
+		    break;
+	    }
+	    return $header;
 	}
 	
 	/**
@@ -396,6 +409,16 @@ class DCO_People_S2SConfig extends S2SConfig {
 			case "organizations":
 				$body .= "{ ?person dco:inOrganization <$constraint_value> }";
 				break;
+			case "members":
+				if( $constraint_value == "members" )
+				{
+				    $body .= "?person <http://vivo.mydomain.edu/ns#networkId> ?networkId .";
+				}
+				else
+				{
+				    $body .= "OPTIONAL {?person <http://vivo.mydomain.edu/ns#networkId> ?networkId . } ";
+				}
+				break;
 			default:
 				break;
 		}
@@ -411,13 +434,15 @@ class DCO_People_S2SConfig extends S2SConfig {
      * @param array $results selections to add context to
 	 * @param string $type search type (e.g. 'datasets', 'authors', 'keywords')
      */
-	private function addContextLinks(&$results, $type) {
-		
-		if ($type == "communities" || $type == "groups" || $type == "organizations") {
-			foreach ( $results as $i => $result ) {
-				$results[$i]['context'] = $result['id']; 
-			}
+	private function addContextLinks(&$results, $type)
+	{
+	    if ($type == "communities" || $type == "groups" || $type == "organizations")
+	    {
+		foreach ( $results as $i => $result )
+		{
+		    $results[$i]['context'] = $result['id']; 
 		}
+	    }
 	}
 	
 	/**
@@ -429,17 +454,19 @@ class DCO_People_S2SConfig extends S2SConfig {
 	* @param int $offset offset into result set
 	* @return string representation of response to client
 	*/
-	public function getOutput(array $results, $type, array $constraints, $limit=0, $offset=0) {
-
-		// Output for the request type "people"				
-		if($type == "people") {
-			$count = $this->getSearchResultCount($constraints);						
-			return $this->getSearchResultsOutput($results, $limit, $offset, $count);
-		}
-		// Output for other types of requests (i.e. search facets)
-		else {		
-			$this->addContextLinks($results, $type);
-			return $this->getFacetOutput($results);
-		}
+	public function getOutput(array $results, $type, array $constraints, $limit=0, $offset=0)
+	{
+	    // Output for the request type "people"				
+	    if($type == "people")
+	    {
+		$count = $this->getSearchResultCount($constraints);						
+		return $this->getSearchResultsOutput($results, $limit, $offset, $count);
+	    }
+	    // Output for other types of requests (i.e. search facets)
+	    else
+	    {		
+		$this->addContextLinks($results, $type);
+		return $this->getFacetOutput($results);
+	    }
 	}
 }
