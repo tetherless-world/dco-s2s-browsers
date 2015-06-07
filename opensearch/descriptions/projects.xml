@@ -15,7 +15,7 @@
   of the projects) and the result set listing the projects that match
   the constraints.</Description>
   <Tags></Tags>
-  <Contact>Han Wang</Contact>
+  <Contact>web@mail.deepcarbon.net</Contact>
   <Url type="application/json" rel="dco:ParticipantsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/projects/search.php?request=participants&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
   <Url type="application/json" rel="dco:CommunitiesQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/projects/search.php?request=communities&amp;participants={dco:Participants?}&amp;groups={dco:Groups?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
   <Url type="application/json" rel="dco:GroupsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/projects/search.php?request=groups&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}" />
@@ -25,7 +25,7 @@
   <Url type="application/json" rel="dco:ReportingYearsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/projects/search.php?request=reportingYears&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}" />
   <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/projects/search.php?request=projects&amp;participants={dco:Participants?}&amp;communities={dco:Communities?}&amp;grants={dco:Grants?}&amp;groups={dco:Groups?}&amp;startDate={dco:StartDate?}&amp;endDate={dco:EndDate?}&amp;reportingYears={dco:ReportingYears?}&amp;limit={count}&amp;offset={startIndex}" />
   <LongName>DCO Data Portal Project Search Service</LongName>
-  <Developer>Han Wang</Developer>
+  <Developer>DCO Data Science Team</Developer>
   <Attribution></Attribution>
   <SyndicationRight>open</SyndicationRight>
   <AdultContent>false</AdultContent>
