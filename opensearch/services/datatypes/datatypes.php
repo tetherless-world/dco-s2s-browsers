@@ -420,7 +420,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
      */
 	private function addContextLinks(&$results, $type) {
 		
-		if ($type == "creationYear" || $type == "creator" || $type == "parameter" || $type == "sourceStandard" || $type == "subjectArea") {
+		if ($type == "creator" || $type == "parameter" || $type == "sourceStandard" || $type == "subjectArea") {
 			foreach ( $results as $i => $result ) {
 				$results[$i]['context'] = $result['id']; 
 			}

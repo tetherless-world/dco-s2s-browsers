@@ -2,7 +2,7 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
         xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
         xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
-        xmlns:dco="http://data.deepcarbon.net/s2s-services/ontologies/dco-s2s.ttl#"
+        xmlns:dco="http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#"
         xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
 
   <ShortName>DCO Data Portal Datatype Search</ShortName>
@@ -11,12 +11,12 @@
   to fill s2s facets (select creation year of the data type, creator of the data type, parameters of the data type, source standard of the data type, subject area of the data type, and the result set.)</Description>
   <Tags></Tags>
   <Contact>web@mail.deepcarbon.net</Contact>
-  <Url type="application/json" rel="dco:CreatedAtTimeQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datatypes/search.php?request=creationYear&amp;creator={dco:Creator?}&amp;parameter={dco:Parameter?}&amp;sourceStandard={dco:SourceStandard?}&amp;subjectArea={dco:SubjectArea?}" />
-  <Url type="application/json" rel="dco:CreatorQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datatypes/search.php?request=creator&amp;creationYear={dco:CreatedAtTime?}&amp;parameter={dco:Parameter?}&amp;sourceStandard={dco:SourceStandard?}&amp;subjectArea={dco:SubjectArea?}" />
-  <Url type="application/json" rel="dco:ParameterQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datatypes/search.php?request=parameter&amp;creator={dco:Creator?}&amp;creationYear={dco:CreatedAtTime?}&amp;sourceStandard={dco:SourceStandard?}&amp;subjectArea={dco:SubjectArea?}" />
-  <Url type="application/json" rel="dco:SourceStandardQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datatypes/search.php?request=sourceStandard&amp;creator={dco:Creator?}&amp;parameter={dco:Parameter?}&amp;creationYear={dco:CreatedAtTime?}&amp;subjectArea={dco:SubjectArea?}" />
-  <Url type="application/json" rel="dco:SubjectAreaQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datatypes/search.php?request=subjectArea&amp;creator={dco:Creator?}&amp;parameter={dco:Parameter?}&amp;sourceStandard={dco:SourceStandard?}&amp;creationYear={dco:CreatedAtTime?}" />
-  <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/datatypes/search.php?request=datatypes&amp;creator={dco:Creator?}&amp;parameter={dco:Parameter?}&amp;sourceStandard={dco:SourceStandard?}&amp;subjectArea={dco:SubjectArea?}&amp;creationYear={dco:CreatedAtTime?}&amp;limit={count}&amp;offset={startIndex}" />
+  <Url type="application/json" rel="dco:CreatedAtTimeQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/datatypes/search.php?request=creationYear&amp;creator={dco:Creator?}&amp;parameter={dco:Parameter?}&amp;sourceStandard={dco:SourceStandard?}&amp;subjectArea={dco:SubjectArea?}" />
+  <Url type="application/json" rel="dco:CreatorQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/datatypes/search.php?request=creator&amp;creationYear={dco:CreatedAtTime?}&amp;parameter={dco:Parameter?}&amp;sourceStandard={dco:SourceStandard?}&amp;subjectArea={dco:SubjectArea?}" />
+  <Url type="application/json" rel="dco:ParameterQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/datatypes/search.php?request=parameter&amp;creator={dco:Creator?}&amp;creationYear={dco:CreatedAtTime?}&amp;sourceStandard={dco:SourceStandard?}&amp;subjectArea={dco:SubjectArea?}" />
+  <Url type="application/json" rel="dco:SourceStandardQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/datatypes/search.php?request=sourceStandard&amp;creator={dco:Creator?}&amp;parameter={dco:Parameter?}&amp;creationYear={dco:CreatedAtTime?}&amp;subjectArea={dco:SubjectArea?}" />
+  <Url type="application/json" rel="dco:SubjectAreaQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/datatypes/search.php?request=subjectArea&amp;creator={dco:Creator?}&amp;parameter={dco:Parameter?}&amp;sourceStandard={dco:SourceStandard?}&amp;creationYear={dco:CreatedAtTime?}" />
+  <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/browsers/opensearch/services/datatypes/search.php?request=datatypes&amp;creator={dco:Creator?}&amp;parameter={dco:Parameter?}&amp;sourceStandard={dco:SourceStandard?}&amp;subjectArea={dco:SubjectArea?}&amp;creationYear={dco:CreatedAtTime?}&amp;limit={count}&amp;offset={startIndex}" />
 
   <LongName>DCO Data Portal Datatype Search Service</LongName>
   <Developer>DCO Data Science Team</Developer>
