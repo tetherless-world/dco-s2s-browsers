@@ -1,0 +1,76 @@
+#s2s-facet-panel {
+	width: 100%;
+}
+
+div.widget-divider {
+	float: left;
+	width: 17em;
+	margin-right: 0.5em;
+	margin-bottom: 1em;
+}
+
+div#http\:\/\/data\.deepcarbon\.net\/dco-s2s\/ontologies\/dco-s2s\.ttl\#Members {
+	float: left;
+}
+
+
+div#http\:\/\/data\.deepcarbon\.net\/dco-s2s\/ontologies\/dco-s2s\.ttl\#Members div.widget-panel {
+	height: 2em;
+}
+
+
+div#http\:\/\/data\.deepcarbon\.net\/dco-s2s\/ontologies\/dco-s2s\.ttl\#Members label {
+	display:block;
+}
+
+div#http\:\/\/data\.deepcarbon\.net\/dco-s2s\/ontologies\/dco-s2s\.ttl\#Members input {
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+div#http\:\/\/data\.deepcarbon\.net\/dco-s2s\/ontologies\/dco-s2s\.ttl\#SearchNames {
+	float: left;
+}
+
+
+div#http\:\/\/data\.deepcarbon\.net\/dco-s2s\/ontologies\/dco-s2s\.ttl\#SearchNames div.widget-panel {
+	height: 2em;
+}
+
+
+div#http\:\/\/data\.deepcarbon\.net\/dco-s2s\/ontologies\/dco-s2s\.ttl\#SearchNames input {
+	width: 20em;
+}
+
+div.widget-panel {
+	height: 14em;
+}
+
+.widget-panel .result-list {
+	width: 100%;
+}
+
+.widget-panel .result-list-item {
+	width: 25em;
+	height: 20em;
+	float: left;
+	padding: 10px;
+	overflow: auto;
+}
+
+.widget-panel .result-list div.result-list-item:nth-child(odd) {
+	border:none;
+}
+
+img.result-list-item-thumbnail {
+	float: none;
+}
+
+.ui-accordion-header.ui-state-active {
+	background: #eeeefa url(../../../browsers/images/expanded_arrow.png) 95% 50% no-repeat;
+}
+
+.ui-accordion-header.ui-state-default {
+	background: #e6e6e6 url(../../../browsers/images/collapsed_arrow.png) 95% 50% no-repeat;
+}

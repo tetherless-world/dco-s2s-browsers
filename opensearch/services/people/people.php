@@ -145,7 +145,7 @@ class DCO_People_S2SConfig extends S2SConfig {
 			$html .= "<a target=\"_blank\" href=\"$link\"><img class=\"result-list-item-thumbnail\" src=\"" . $result['thumbnail'] . "\"></a>";
 		}
 		else {
-			$html .= "<a target=\"_blank\" href=\"$link\"><img class=\"result-list-item-thumbnail\" src=\"https://data.deepcarbon.net/browsers/images/default-user.png\">";
+			$html .= "<a target=\"_blank\" href=\"$link\"><img class=\"result-list-item-thumbnail\" src=\"/browsers/images/default-user.png\">";
 		}
 
 		$html .= "<br />";

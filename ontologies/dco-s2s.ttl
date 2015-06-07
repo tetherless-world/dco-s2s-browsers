@@ -259,14 +259,14 @@
     s2s:hasOutput core:LabelIdContextCountJsonArray ;
     a s2s:InputValuesInterface, owl:Thing .
 
-geo:box
+:box
     core:hasDelimiter ";"^^xsd:string ;
     a s2s:Input, owl:Thing ;
     rdfs:comment "A search parameter for data realted to any input bounding box."^^xsd:string ;
     rdfs:label "Geographic Region"^^xsd:string .
 
 :WmsQuery
-    s2s:forInput geo:box ;
+    s2s:forInput :box ;
     s2s:hasOutput core:WmsUrl ;
     a s2s:InputValuesInterface, owl:Thing .
 
