@@ -19,18 +19,19 @@ case $1 in
     case ${DEPLOYMENT} in
 
         "deepcarbon.net")
+        # TODO add URL replacement assertions (if needed)
         echo "configured for deployment to ${DEPLOYMENT}"
         ;;
 
         "deepcarbon.net-staging")
-        replace "https://deepcarbon.net/browsers/" "https://deepcarbon.net/staging/browsers/"
+        replace "https://data.deepcarbon.net/browsers/" "https://data.deepcarbon.net/staging/browsers/"
         replace "https://data.deepcarbon.net/s2s/" "https://data.deepcarbon.net:8444/s2s/"
         replace "http://fuseki:3030/vivo/query" "http://deepcarbon.tw.rpi.edu:3030/VIVO/query"
         echo "onfigured for deployment to ${DEPLOYMENT}"
         ;;
 
         "dcotest.tw.rpi.edu")
-        replace "https://deepcarbon.net/browsers/" "https://dcotest.tw.rpi.edu/browsers/"
+        replace "https://data.deepcarbon.net/browsers/" "https://dcotest.tw.rpi.edu/browsers/"
         replace "https://data.deepcarbon.net/s2s/" "https://dcotest.tw.rpi.edu/s2s/"
         echo "configured for deployment to ${DEPLOYMENT}"
         ;;
