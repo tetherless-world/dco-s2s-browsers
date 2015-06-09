@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription
+        xmlns="http://a9.com/-/spec/opensearch/1.1/"
+        xmlns:dco="https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#">
+
+  <ShortName>DCO Data Portal Person Search</ShortName>
+  <Description>DCO Data Portal Person Search Service, returning a list
+  of people in the DCO community. This opensearch document describes
+  how to call the various RESTful services in order to fill s2s facets
+  (Web map service for the location of people, DCO communities the person
+  is a part of, DCO groups the people are related to, and organization
+  affiliations of the people) and the result set of the people that match
+  the constraints.</Description>
+  <Tags></Tags>
+  <Contact>web@mail.deepcarbon.net</Contact>
+  <Url type="application/json" rel="dco:WmsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=box&amp;names={dco:SearchNames?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;organizations={dco:Organizations?}" />
+  <Url type="application/json" rel="dco:CommunitiesQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=communities&amp;names={dco:SearchNames?}&amp;groups={dco:Groups?}&amp;organizations={dco:Organizations?}&amp;box={dco:box?}" />
+  <Url type="application/json" rel="dco:GroupsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=groups&amp;names={dco:SearchNames?}&amp;communities={dco:Communities?}&amp;organizations={dco:Organizations?}&amp;box={dco:box?}" />
+  <Url type="application/json" rel="dco:OrganizationsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=organizations&amp;names={dco:SearchNames?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;box={dco:box?}" />
+  <Url type="text/html" rel="dco:ResultsListQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/people/search.php?request=people&amp;names={dco:SearchNames?}&amp;box={dco:box?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;organizations={dco:Organizations?}&amp;limit={count}&amp;offset={startIndex}" />
+  <LongName>DCO Data Portal Person Search Service</LongName>
+  <Developer>DCO Data Science Team</Developer>
+  <Attribution></Attribution>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultContent>false</AdultContent>
+  <Language>en-us</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>
+

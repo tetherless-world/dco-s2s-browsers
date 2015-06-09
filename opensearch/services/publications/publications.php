@@ -6,7 +6,9 @@ include_once("../../../s2s/opensearch/utils.php");
 include_once("../../../s2s/opensearch/config.php");
 
 class DCO_Publications_S2SConfig extends S2SConfig {
-	
+
+    public $VIVO_URL_PREFIX = "http://info.deepcarbon.net/vivo/individual";
+
 	private $namespaces = array(
 		'dco'	=> "http://info.deepcarbon.net/schema#",
 		'vivo'	=> "http://vivoweb.org/ontology/core#",
@@ -31,7 +33,7 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 	* @return string SPARQL endpoint URL
 	*/
 	public function getEndpoint() {
-		return "http://deepcarbon.tw.rpi.edu:3030/VIVO/query";
+		return "http://fuseki:3030/vivo/query";
 	}
 
 	/**
@@ -255,6 +257,7 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 				$body .= "?concept rdfs:label ?l . ";
 				$body .= "BIND(str(?concept) AS ?id) . ";
 				$body .= "BIND(str(?l) AS ?label) . ";
+				break;
 				
 			case "count":
 				$body .= $this->publication_types;

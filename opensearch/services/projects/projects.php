@@ -6,7 +6,9 @@ include_once("../../../s2s/opensearch/utils.php");
 include_once("../../../s2s/opensearch/config.php");
 
 class DCO_Projects_S2SConfig extends S2SConfig {
-	
+
+	public $VIVO_URL_PREFIX = "http://info.deepcarbon.net/vivo/individual";
+
 	private $namespaces = array(
 		'dco'	=> "http://info.deepcarbon.net/schema#",
 		'vivo'	=> "http://vivoweb.org/ontology/core#",
@@ -29,7 +31,7 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 	* @return string SPARQL endpoint URL
 	*/
 	public function getEndpoint() {
-		return "http://deepcarbon.tw.rpi.edu:3030/VIVO/query";
+		return "http://fuseki:3030/vivo/query";
 	}
 
 	/**
@@ -64,6 +66,7 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 	/**
         * Get participants for a given project
         * @param string $project project  uri
+        * @param string $role role label
         * @return array an array of associative arrays containing the participant bindings
         */
 	private function getParticipantsByProject($project, $role) {
@@ -78,6 +81,7 @@ class DCO_Projects_S2SConfig extends S2SConfig {
 		return $this->sparqlSelect($query);
 	}
 
+    /*
     private function getProjectUpdatesForProjects(array $projects)
     {
         $query = $this->getPrefixes();
@@ -92,7 +96,9 @@ class DCO_Projects_S2SConfig extends S2SConfig {
         $query .= " }";
         return $query;
     }
+    */
 
+    /*
     private function getProjectUpdatesByProject($project) {
         $query = $this->getPrefixes();
         $query .= "SELECT DISTINCT ?projectUpdate ?projectUpdateLabel ?reportingYearLabel
@@ -111,6 +117,7 @@ WHERE
 }";
         return $this->sparqlSelect($query);
     }
+    */
 
 	/**
 	* Return count of total search results for specified constraints
@@ -173,7 +180,7 @@ WHERE
 			$html .= "<br /><span>Investigators: ";
 			$investigators_markup = array();
 			foreach ($investigators as $i => $investigator) {
-				$vivo_url = $VIVO_URL_PREFIX . substr($investigator['uri'], strripos($investigator['uri'], '/')); 
+				$vivo_url = $this->VIVO_URL_PREFIX . substr($investigator['uri'], strripos($investigator['uri'], '/'));
 				array_push($investigators_markup, "<a target='_blank' href=\"" . $vivo_url . "\">" . $investigator['name'] . "</a>");
 			}
 			$html .= implode('; ', $investigators_markup);
@@ -186,7 +193,7 @@ WHERE
 			$html .= "<br /><span>Research Team Members: ";
 			$members_markup = array();
 			foreach ($members as $i => $member) {
-				$vivo_url = $VIVO_URL_PREFIX . substr($member['uri'], strripos($member['uri'], '/'));
+				$vivo_url = $this->VIVO_URL_PREFIX . substr($member['uri'], strripos($member['uri'], '/'));
 				array_push($members_markup, "<a target='_blank' href=\"" . $vivo_url . "\">" . $member['name'] . "</a>");
 			}
 			$html .= implode('; ', $members_markup);
@@ -246,6 +253,7 @@ WHERE
      * @param array $result
      * @return string HTML
      */
+    /*
     private function getSearchResultProjectUpdateHTML(array $result) {
 
         $html = "";
@@ -294,6 +302,7 @@ WHERE
 
         return $html;
     }
+    */
 
 	/**
 	* Return SPARQL query header component

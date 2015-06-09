@@ -1,4 +1,4 @@
-@prefix :        <http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#> .
+@prefix :        <https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#> .
 @prefix dc:      <http://purl.org/dc/terms/> .
 @prefix s2s:     <http://escience.rpi.edu/ontology/sesf/s2s/4/0/> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
@@ -6,66 +6,66 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix core:    <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> .
-@prefix geo:	 <http://a9.com/-/opensearch/extensions/geo/1.0/> .
 
-<http://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl> 
+<https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl> 
     dc:creator "Han Wang"^^xsd:string ;
+    dc:contributor "Stephan Zednik"^^xsd:string ;
     a owl:Ontology ;
     rdfs:comment "An ontology describing the metadata for the DCO Data Portal s2s search services."^^xsd:string ;
     owl:imports <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> ;
     owl:versionInfo "1.0"^^xsd:string .
 
 :PublicationSearchService
-    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/browsers/opensearch/descriptions/publications.xml"^^xsd:anyURI ;
+    core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/publications.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for publications in DCO Data Portal."^^xsd:string ;
     rdfs:label "DCO Data Portal Publication Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :ObjectSearchService
-    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/browsers/opensearch/descriptions/objects.xml"^^xsd:anyURI ;
+    core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/objects.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for objects in DCO Data Portal."^^xsd:string ;
     rdfs:label "DCO Data Portal Object Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :ProjectSearchService
-    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/browsers/opensearch/descriptions/projects.xml"^^xsd:anyURI ;
+    core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/projects.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for projects in DCO Data Portal."^^xsd:string ;
     rdfs:label "DCO Data Portal Project Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :FieldStudySearchService
-    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/browsers/opensearch/descriptions/field_studies.xml"^^xsd:anyURI ;
+    core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/field_studies.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for field studies in DCO Data Portal."^^xsd:string ;
     rdfs:label "DCO Data Portal Field Study Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :FieldStudyMapSearchService
-    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/browsers/opensearch/descriptions/field_studies.xml"^^xsd:anyURI ;
+    core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/field_studies.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A map search service for field studies in DCO Data Portal."^^xsd:string ;
     rdfs:label "DCO Data Portal Field Study Map Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :FieldStudyOpenToJournalistsMapSearchService
-    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/browsers/opensearch/descriptions/field_studies_open_to_journalists.xml"^^xsd:anyURI ;
+    core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/field_studies_open_to_journalists.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A map search service for field studies in DCO Data Portal."^^xsd:string ;
     rdfs:label "DCO Data Portal Field Study Map Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :DatasetSearchService
-    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/browsers/opensearch/descriptions/datasets.xml"^^xsd:anyURI ;
+    core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/datasets.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for datasets in DCO Data Portal."^^xsd:string ;
     rdfs:label "DCO Data Portal Dataset Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
 :PersonSearchService
-    core:hasOpenSearchDescriptionDocument "http://data.deepcarbon.net/browsers/opensearch/descriptions/people.xml"^^xsd:anyURI ;
+    core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/people.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
     rdfs:comment "A search service for people in DCO Data Portal."^^xsd:string ;
     rdfs:label "DCO Data Portal Person Search Service"^^xsd:string ;
@@ -279,7 +279,7 @@
 
 :ResultsListWidget
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ResultsListWidget"^^xsd:string ;
-    core:requiresJavaScript "http://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/ResultsListWidget.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/ResultsListWidget.js"^^xsd:anyURI ;
     s2s:supportsOutput core:TextHtml ;
     a s2s:ResultsWidget ;
     rdfs:comment "A s2s:ResultsWidget for results lists that accepts XHTML content."^^xsd:string ;
@@ -288,7 +288,7 @@
 
 :DynamicMonthYearDateWidget
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DynamicMonthYearDateWidget"^^xsd:string ;
-    core:requiresJavaScript "http://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/DynamicMonthYearDateWidget.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/js/widgets/DynamicMonthYearDateWidget.js"^^xsd:anyURI ;
     s2s:supportsInput :StartDate, :EndDate ;
     s2s:supportsOutput core:DateJsonArray ;
     a core:JavaScriptWidget, s2s:InputWidget ;
@@ -298,8 +298,9 @@
 
 :WmsOpenLayersBoundingBox
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.WmsOpenLayersBoundingBox"^^xsd:string ;
-    core:requiresJavaScript "http://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI, "http://openlayers.org/api/OpenLayers.js"^^xsd:anyURI ;
-    s2s:supportsInput geo:box ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI ,
+        "https://data.deepcarbon.net/browsers/js/OpenLayers-2.13.1/OpenLayers.js"^^xsd:anyURI ;
+    s2s:supportsInput :box ;
     s2s:supportsOutput core:WmsUrl ;
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A s2s:InputWidget for selecting the geo:box parameter and using a dynamic WMS response to provide map context."^^xsd:string ;
@@ -307,7 +308,7 @@
 
 :DescendingContextSelect
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DescendingContextSelect"^^xsd:string ;
-    core:requiresJavaScript "http://data.deepcarbon.net/browsers/ui/scripts/widgets/DescendingContextSelect.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/js/widgets/DescendingContextSelect.js"^^xsd:anyURI ;
     s2s:supportsOutput core:LabelIdContextCountJsonArray, core:LabelIdContextCountParentJsonArray, core:LabelIdContextJsonArray, core:LabelIdContextParentJsonArray ;
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A s2s:InputWidget that creates a list of checkboxes with links to information about the items."^^xsd:string ;
@@ -321,7 +322,7 @@
 
 :ResultsMapWidget
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ResultsMapWidget"^^xsd:string ;
-    core:requiresJavaScript "http://data.deepcarbon.net/browsers/ui/scripts/widgets/ResultsArcGISMapWidget.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/js/widgets/ResultsArcGISMapWidget.js"^^xsd:anyURI ;
     s2s:supportsOutput core:TextHtml ;
     a s2s:ResultsWidget ;
     rdfs:comment "A s2s:ResultsWidget for results that accepts XHTML content."^^xsd:string ;
@@ -329,7 +330,7 @@
 
 :ContextSelect
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ContextSelect"^^xsd:string ;
-    core:requiresJavaScript "http://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/ContextSelect.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/ContextSelect.js"^^xsd:anyURI ;
     s2s:supportsOutput core:LabelIdContextCountJsonArray, core:LabelIdContextCountParentJsonArray, core:LabelIdContextJsonArray, core:LabelIdContextParentJsonArray ;
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A s2s:InputWidget that creates a list of checkboxes with links to information about the items."^^xsd:string ;
@@ -347,7 +348,7 @@
 
 :GenericWidget
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.GenericWidget"^^xsd:string ;
-    core:requiresJavaScript "http://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/GenericWidget.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/GenericWidget.js"^^xsd:anyURI ;
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A generic s2s:InputWidget that supports any s2s:Input."^^xsd:string ;
     rdfs:label "Generic Widget"^^xsd:string ;
