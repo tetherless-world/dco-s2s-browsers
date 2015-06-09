@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
-	xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
-	xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
-	xmlns:dco="http://data.deepcarbon.net/dco-s2s/ontologies/dco-s2s.ttl#"
-	xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+<OpenSearchDescription
+        xmlns="http://a9.com/-/spec/opensearch/1.1/"
+        xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
+        xmlns:dco="https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl#">
 
   <ShortName>DCO Data Portal Publication Search</ShortName>
   <Description>DCO Data Portal Publication Search Service, that lists
@@ -18,13 +17,13 @@
   </Description>
   <Tags></Tags>
   <Contact>web@mail.deepcarbon.net</Contact>
-  <Url type="application/json" rel="dco:YearsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/publications/search.php?request=years&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;concepts={dco:Concepts?}" />
-  <Url type="application/json" rel="dco:CommunitiesQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/publications/search.php?request=communities&amp;keywords={dco:SearchTerms?}&amp;years={dco:Years?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;concepts={dco:Concepts?}" />
-  <Url type="application/json" rel="dco:GroupsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/publications/search.php?request=groups&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;years={dco:Years?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;concepts={dco:Concepts?}" />
-  <Url type="application/json" rel="dco:AuthorsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/publications/search.php?request=authors&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;years={dco:Years?}&amp;organizations={dco:Organizations?}&amp;concepts={dco:Concepts?}" />
-  <Url type="application/json" rel="dco:OrganizationsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/publications/search.php?request=organizations&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;years={dco:Years?}&amp;concepts={dco:Concepts?}" />
-  <Url type="application/json" rel="dco:ConceptsQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/publications/search.php?request=concepts&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;years={dco:Years?}" />
-  <Url type="text/html" rel="dco:ResultsListQuery" template="http://data.deepcarbon.net/dco-s2s/opensearch/services/publications/search.php?request=publications&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;years={dco:Years?}&amp;concepts={dco:Concepts?}&amp;limit={count}&amp;offset={startIndex}" />
+  <Url type="application/json" rel="dco:YearsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/publications/search.php?request=years&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;concepts={dco:Concepts?}" />
+  <Url type="application/json" rel="dco:CommunitiesQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/publications/search.php?request=communities&amp;keywords={dco:SearchTerms?}&amp;years={dco:Years?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;concepts={dco:Concepts?}" />
+  <Url type="application/json" rel="dco:GroupsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/publications/search.php?request=groups&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;years={dco:Years?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;concepts={dco:Concepts?}" />
+  <Url type="application/json" rel="dco:AuthorsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/publications/search.php?request=authors&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;years={dco:Years?}&amp;organizations={dco:Organizations?}&amp;concepts={dco:Concepts?}" />
+  <Url type="application/json" rel="dco:OrganizationsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/publications/search.php?request=organizations&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;years={dco:Years?}&amp;concepts={dco:Concepts?}" />
+  <Url type="application/json" rel="dco:ConceptsQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/publications/search.php?request=concepts&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;years={dco:Years?}" />
+  <Url type="text/html" rel="dco:ResultsListQuery" template="https://data.deepcarbon.net/browsers/opensearch/services/publications/search.php?request=publications&amp;keywords={dco:SearchTerms?}&amp;communities={dco:Communities?}&amp;groups={dco:Groups?}&amp;authors={dco:Authors?}&amp;organizations={dco:Organizations?}&amp;years={dco:Years?}&amp;concepts={dco:Concepts?}&amp;limit={count}&amp;offset={startIndex}" />
   <LongName>DCO Data Portal Publication Search Service</LongName>
   <Query role="example" geo:box="140,10,145,15"></Query>
   <Developer>DCO Data Science Team</Developer>
