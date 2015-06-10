@@ -288,7 +288,7 @@ WHERE
 
                     $projectUpdateURI = $projectUpdate["projectUpdate"];
                     $projectUpdateLabel = $projectUpdate["projectUpdateLabel"];
-                    $projectUpdateURI_Local = "http://udco.tw.rpi.edu/vivo/" . substr($projectUpdateURI, 27);
+                    $projectUpdateURI_Local = "http://info.deepcarbon.net/vivo/" . substr($projectUpdateURI, 27);
                     $html .= "<li><a href='$projectUpdateURI_Local'>$projectUpdateLabel</a></li>" ;
                 }
 

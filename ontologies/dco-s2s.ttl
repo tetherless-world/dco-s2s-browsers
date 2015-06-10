@@ -171,6 +171,17 @@
     s2s:hasOutput core:LabelIdContextCountJsonArray ;
     a s2s:InputValuesInterface, owl:Thing .
 
+:Members
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter to search for members only or all people."^^xsd:string ;
+    rdfs:label "Members"^^xsd:string .
+
+:MembersQuery
+    s2s:forInput :Members ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
 :Organizations
     core:hasDelimiter ";"^^xsd:string ;
     a s2s:Input, owl:Thing ;
@@ -324,6 +335,15 @@
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A s2s:InputWidget that creates a list of checkboxes with links to information about the items."^^xsd:string ;
     rdfs:label "Context Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:BooleanSelect
+    core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.BooleanSelect"^^xsd:string ;
+    core:requiresJavaScript "http://data.deepcarbon.net/browsers/ui/scripts/widgets/BooleanSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput core:LabelIdContextCountJsonArray, core:LabelIdContextCountParentJsonArray, core:LabelIdContextJsonArray, core:LabelIdContextParentJsonArray ;
+    a core:JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that includes a single checkbox for true/false."^^xsd:string ;
+    rdfs:label "Boolean Select"^^xsd:string ;
     owl:versionInfo "4.0"^^xsd:string .
 
 :GenericWidget
