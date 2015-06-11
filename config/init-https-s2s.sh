@@ -11,17 +11,17 @@ case $1 in
     case ${DEPLOYMENT} in
 
         "deepcarbon.net")
-        `curl https://data.deepcarbon.net:8444/s2s/metadata?type=services&instance=http%3A//data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl%23PersonSearchService`
+        `curl -L 'https://data.deepcarbon.net:8444/s2s/metadata?type=services&instance=http%3A//data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl%23PersonSearchService'`
         echo "configured HTTPS s2s for deployment to ${DEPLOYMENT}"
         ;;
         
         "deepcarbon.net-staging")
-        `https://data.deepcarbon.net:8444/s2s/metadata?type=services&instance=http%3A//data.deepcarbon.net/staging/browsers/ontologies/dco-s2s.ttl%23PersonSearchService`
+        `curl -L 'https://data.deepcarbon.net:8444/s2s/metadata?type=services&instance=http%3A//data.deepcarbon.net/staging/browsers/ontologies/dco-s2s.ttl%23PersonSearchService'`
         echo "configured HTTPS s2s for deployment to ${DEPLOYMENT}"
         ;;
 
         "dcotest.tw.rpi.edu")
-        `https://dcotest.tw.rpi.edu/s2s/metadata?type=services&instance=http%3A//dcotest.tw.rpi.edu/browsers/ontologies/dco-s2s.ttl%23PersonSearchService`
+        `curl -L 'https://dcotest.tw.rpi.edu/s2s/metadata?type=services&instance=http%3A//dcotest.tw.rpi.edu/browsers/ontologies/dco-s2s.ttl%23PersonSearchService'`
         echo "configured HTTPS s2s for deployment to ${DEPLOYMENT}"
         ;;
 
