@@ -6,10 +6,10 @@ AVAILABLE_DEPLOYMENTS=" deepcarbon.net
  dcotest.tw.rpi.edu"
 
 replace() {
-`find ../*.html -type -f -print0 | xargs -0 sed -i "s%$1%$2%g"`
-`find ../ontologies -type -f -print0 | xargs -0 sed -i "s%$1%$2%g"`
-`find ../opensearch -type -f -print0 | xargs -0 sed -i "s%$1%$2%g"`
-`find ../js -type -f -print0 | xargs -0 sed -i "s%$1%$2%g"`
+`find ../*.html -type f -print0 | xargs -0 sed -i "s%$1%$2%g"`
+`find ../ontologies -type f -print0 | xargs -0 sed -i "s%$1%$2%g"`
+`find ../opensearch -type f -print0 | xargs -0 sed -i "s%$1%$2%g"`
+`find ../js -type f -print0 | xargs -0 sed -i "s%$1%$2%g"`
 }
 
 case $1 in
@@ -37,7 +37,9 @@ case $1 in
         ;;
 
         "udco.tw.rpi.edu")
-        # TODO add URL replacement assertions
+        replace "https://data.deepcarbon.net/browsers/" "http://udco.tw.rpi.edu/browsers/"
+        replace "https://data.deepcarbon.net/s2s/" "http://udco.tw.rpi.edu/s2s/"
+        replace "http://fuseki:3030/vivo/query" "http://localhost:3030/vivo/query"
         echo "configured for deployment to ${DEPLOYMENT}"
         ;;
 
