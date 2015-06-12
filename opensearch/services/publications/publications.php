@@ -6,7 +6,9 @@ include_once("../../../s2s/opensearch/utils.php");
 include_once("../../../s2s/opensearch/config.php");
 
 class DCO_Publications_S2SConfig extends S2SConfig {
-	
+
+    public $VIVO_URL_PREFIX = "http://info.deepcarbon.net/vivo/individual";
+
 	private $namespaces = array(
 		'dco'	=> "http://info.deepcarbon.net/schema#",
 		'vivo'	=> "http://vivoweb.org/ontology/core#",
@@ -31,7 +33,7 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 	* @return string SPARQL endpoint URL
 	*/
 	public function getEndpoint() {
-		return "http://deepcarbon.tw.rpi.edu:3030/VIVO/query";
+		return "http://fuseki:3030/vivo/query";
 	}
 
 	/**
@@ -69,7 +71,7 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 		$query .= "SELECT DISTINCT ?uri ?name ?rank WHERE { ";
 		$query .= "<$publication> vivo:relatedBy ?authorship . ";
 		$query .= "?authorship vivo:relates ?uri . ";
-		$query .= "?authorship vivo:rank ?rank . ";
+		$query .= "OPTIONAL { ?authorship vivo:rank ?rank . } ";
 		$query .= "?uri a foaf:Person . ";
 		$query .= "?uri rdfs:label ?label . ";
 		$query .= "BIND(str(?label) AS ?name) } ";
@@ -115,12 +117,6 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 			$html .= "<br /><span>" . $result['type'] . "</span>";
 		}
 			
-		// DCO-ID
-		if (isset($result['dco_id'])) {
-			$dco_id_label = substr(@$result['dco_id'], 25);
-			$html .= "<br /><span>DCO ID: <a target='_blank' href=\"" . $result['dco_id'] . "\">" . $dco_id_label . "</a></span>";
-		}
-
 		// authors
 		$dco_authors = $this->getDCOAuthorsByPublication($result['publication']);
 		if (count($dco_authors) > 0) {
@@ -149,6 +145,12 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 		// DOI
 		if (isset($result['doi'])) {
 			$html .= "<br /><span>DOI: <a target='_blank' href=\"http://dx.doi.org/" . $result['doi'] . "\">" . $result['doi'] . "</a></span>";
+		}
+
+		// DCO-ID
+		if (isset($result['dco_id'])) {
+			$dco_id_label = substr(@$result['dco_id'], 25);
+			$html .= "<br /><span>Publication Metadata: <a target='_blank' href=\"" . $result['dco_id'] . "\">" . $dco_id_label . "</a></span>";
 		}
 
 		$html .= "</div>";
@@ -255,6 +257,7 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 				$body .= "?concept rdfs:label ?l . ";
 				$body .= "BIND(str(?concept) AS ?id) . ";
 				$body .= "BIND(str(?l) AS ?label) . ";
+				break;
 				
 			case "count":
 				$body .= $this->publication_types;

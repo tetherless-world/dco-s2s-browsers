@@ -6,10 +6,10 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix core:    <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> .
-@prefix geo:	 <http://a9.com/-/opensearch/extensions/geo/1.0/> .
 
 <https://data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl> 
     dc:creator "Han Wang"^^xsd:string ;
+    dc:contributor "Stephan Zednik"^^xsd:string ;
     a owl:Ontology ;
     rdfs:comment "An ontology describing the metadata for the DCO Data Portal s2s search services."^^xsd:string ;
     owl:imports <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> ;
@@ -360,8 +360,9 @@
 
 :WmsOpenLayersBoundingBox
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.WmsOpenLayersBoundingBox"^^xsd:string ;
-    core:requiresJavaScript "https://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI, "http://openlayers.org/api/OpenLayers.js"^^xsd:anyURI ;
-    s2s:supportsInput geo:box ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/s2s/client/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI ,
+        "https://data.deepcarbon.net/browsers/js/OpenLayers-2.13.1/OpenLayers.js"^^xsd:anyURI ;
+    s2s:supportsInput :box ;
     s2s:supportsOutput core:WmsUrl ;
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A s2s:InputWidget for selecting the geo:box parameter and using a dynamic WMS response to provide map context."^^xsd:string ;
@@ -369,7 +370,7 @@
 
 :DescendingContextSelect
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DescendingContextSelect"^^xsd:string ;
-    core:requiresJavaScript "https://data.deepcarbon.net/browsers/ui/scripts/widgets/DescendingContextSelect.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/js/widgets/DescendingContextSelect.js"^^xsd:anyURI ;
     s2s:supportsOutput core:LabelIdContextCountJsonArray, core:LabelIdContextCountParentJsonArray, core:LabelIdContextJsonArray, core:LabelIdContextParentJsonArray ;
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A s2s:InputWidget that creates a list of checkboxes with links to information about the items."^^xsd:string ;
@@ -383,7 +384,7 @@
 
 :ResultsMapWidget
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ResultsMapWidget"^^xsd:string ;
-    core:requiresJavaScript "https://data.deepcarbon.net/browsers/ui/scripts/widgets/ResultsArcGISMapWidget.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/js/widgets/ResultsArcGISMapWidget.js"^^xsd:anyURI ;
     s2s:supportsOutput core:TextHtml ;
     a s2s:ResultsWidget ;
     rdfs:comment "A s2s:ResultsWidget for results that accepts XHTML content."^^xsd:string ;
@@ -400,7 +401,7 @@
 
 :BooleanSelect
     core:hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.BooleanSelect"^^xsd:string ;
-    core:requiresJavaScript "https://data.deepcarbon.net/browsers/ui/scripts/widgets/BooleanSelect.js"^^xsd:anyURI ;
+    core:requiresJavaScript "https://data.deepcarbon.net/browsers/js/widgets/BooleanSelect.js"^^xsd:anyURI ;
     s2s:supportsOutput core:LabelIdContextCountJsonArray, core:LabelIdContextCountParentJsonArray, core:LabelIdContextJsonArray, core:LabelIdContextParentJsonArray ;
     a core:JavaScriptWidget, s2s:InputWidget ;
     rdfs:comment "A s2s:InputWidget that includes a single checkbox for true/false."^^xsd:string ;
