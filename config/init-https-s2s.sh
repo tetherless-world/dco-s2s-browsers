@@ -20,24 +20,24 @@ case $1 in
     case ${DEPLOYMENT} in
 
         "deepcarbon.net")
-        result = `curl -L 'https://data.deepcarbon.net:8444/s2s/metadata?type=services&instance=http%3A//data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl%23PersonSearchService'`
-        if [ "$result" -ne '{}' ]; then
+        result=`curl -L 'https://data.deepcarbon.net:8444/s2s/metadata?type=services&instance=http%3A//data.deepcarbon.net/browsers/ontologies/dco-s2s.ttl%23PersonSearchService'`
+        if [ "$result" != '{}' ]; then
           echo "S2S metadata service did not return the expected response"
         fi
         echo "configured HTTPS s2s for deployment to ${DEPLOYMENT}"
         ;;
         
         "deepcarbon.net-staging")
-        result = `curl -L 'https://data.deepcarbon.net:8444/s2s/metadata?type=services&instance=http%3A//data.deepcarbon.net/staging/browsers/ontologies/dco-s2s.ttl%23PersonSearchService'`
-        if [ "$result" -ne '{}' ]; then
+        result=`curl -L 'https://data.deepcarbon.net:8444/s2s/metadata?type=services&instance=http%3A//data.deepcarbon.net/staging/browsers/ontologies/dco-s2s.ttl%23PersonSearchService'`
+        if [ "$result" != '{}' ]; then
           echo "S2S metadata service did not return the expected response"
         fi
         echo "configured HTTPS s2s for deployment to ${DEPLOYMENT}"
         ;;
 
         "dcotest.tw.rpi.edu")
-        result = `curl -L 'https://dcotest.tw.rpi.edu/s2s/metadata?type=services&instance=http%3A//dcotest.tw.rpi.edu/browsers/ontologies/dco-s2s.ttl%23PersonSearchService'`
-        if [ "$result" -ne '{}' ]; then
+        result=`curl -L 'https://dcotest.tw.rpi.edu/s2s/metadata?type=services&instance=http%3A//dcotest.tw.rpi.edu/browsers/ontologies/dco-s2s.ttl%23PersonSearchService'`
+        if [ "$result" != '{}' ]; then
           echo "S2S metadata service did not return the expected response"
         fi
         echo "configured HTTPS s2s for deployment to ${DEPLOYMENT}"
