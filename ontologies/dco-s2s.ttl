@@ -64,6 +64,13 @@
     rdfs:label "DCO Data Portal Dataset Search Service"^^xsd:string ;
     rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
 
+:DatatypeSearchService
+    core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/datatypes.xml"^^xsd:anyURI ;
+    a core:OpenSearchService, owl:Thing ;
+    rdfs:comment "A search service for datatypes in DCO Data Portal."^^xsd:string ;
+    rdfs:label "DCO Data Portal Datatype Search Service"^^xsd:string ;
+    rdfs:seeAlso "http://info.deepcarbon.net/vivo/"^^xsd:anyURI .
+
 :PersonSearchService
     core:hasOpenSearchDescriptionDocument "https://data.deepcarbon.net/browsers/opensearch/descriptions/people.xml"^^xsd:anyURI ;
     a core:OpenSearchService, owl:Thing ;
@@ -245,6 +252,61 @@
 
 :DataTypeQuery
     s2s:forInput :DataType ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:CreatedAtTime
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for retrieving data types based on the selected year."^^xsd:string ;
+    rdfs:label "Creation Year"^^xsd:string .
+
+:CreatedAtTimeQuery
+    s2s:forInput :CreatedAtTime ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Creator
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for retrieving data types based on its creator."^^xsd:string ;
+    rdfs:label "Creator"^^xsd:string .
+
+:CreatorQuery
+    s2s:forInput :Creator ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:Parameter
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for retrieving data types based on its parameters."^^xsd:string ;
+    rdfs:label "Parameter"^^xsd:string .
+
+:ParameterQuery
+    s2s:forInput :Parameter ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:SourceStandard
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for retrieving data types based on its source standard."^^xsd:string ;
+    rdfs:label "Source Standard"^^xsd:string .
+
+:SourceStandardQuery
+    s2s:forInput :SourceStandard ;
+    s2s:hasOutput core:LabelIdContextCountJsonArray ;
+    a s2s:InputValuesInterface, owl:Thing .
+
+:SubjectArea
+    core:hasDelimiter ";"^^xsd:string ;
+    a s2s:Input, owl:Thing ;
+    rdfs:comment "A search parameter for retrieving data types based on its annotations."^^xsd:string ;
+    rdfs:label "Annotations"^^xsd:string .
+
+:SubjectAreaQuery
+    s2s:forInput :SubjectArea ;
     s2s:hasOutput core:LabelIdContextCountJsonArray ;
     a s2s:InputValuesInterface, owl:Thing .
 
