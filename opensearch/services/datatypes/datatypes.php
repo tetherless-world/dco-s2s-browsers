@@ -24,7 +24,7 @@ class DCO_Datatypes_S2SConfig extends S2SConfig {
 	* @return string SPARQL endpoint URL
 	*/
 	public function getEndpoint() {
-		return "http://localhost:3030/vivo/query";
+		return "http://localhost:3030/VIVO/query";
 	}
 
 	/**
