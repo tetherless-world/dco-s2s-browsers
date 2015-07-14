@@ -349,6 +349,13 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 			case "years":
 				$body .= "{ ?publication dco:yearOfPublication \"$constraint_value\"^^xsd:gYear }";
 				break;
+			case "dcoPubs":
+				if( $constraint_value == "yes" )
+				{
+				    $body .= "?publication dco:isDCOPublication ?isit ." ;
+				    $body .= "FILTER (lcase(str(?isit)) = \"yes\") ." ;
+				}
+				break;
 			default:
 				break;
 		}
