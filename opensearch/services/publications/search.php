@@ -52,6 +52,16 @@ if (@$_GET['years'] && @$_GET['years'] != '') {
     $constraints['years'] = explode(";",$_GET['years']);
 }
 
+// Determine if we retrieve only DCO publications
+if (@$_GET['dcoPubs'] && @$_GET['dcoPubs'] != '') {
+	$constraints["dcoPubs"] = explode(";",$_GET['dcoPubs']);
+}
+else
+{
+    $constraints["dcoPubs"] = array() ;
+    $constraints["dcoPubs"][0] = "yes" ;
+}
+
 // Get the number of results displayed on each page from the request url
 if (@$_GET['limit'] && @$_GET['limit'] != '') {
     $limit = $_GET['limit'];
