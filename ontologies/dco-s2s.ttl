@@ -192,8 +192,7 @@
 :DcoPubs
     core:hasDelimiter ";"^^xsd:string ;
     a s2s:Input, owl:Thing ;
-    rdfs:comment "A search parameter to search for DCO Publications
-    Only."^^xsd:string ;
+    rdfs:comment "A search parameter to search for DCO Publications Only."^^xsd:string ;
     rdfs:label "DCO Publications"^^xsd:string .
 
 :DcoPubsQuery
