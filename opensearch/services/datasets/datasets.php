@@ -65,10 +65,13 @@ class DCO_Datasets_S2SConfig extends S2SConfig {
 	private function getDCOAuthorsByDataset($dataset) {
 		$query = $this->getPrefixes();
 		$query .= "SELECT DISTINCT ?uri ?name WHERE { ";
-		$query .= "<$dataset> vivo:relatedBy [vivo:relates ?uri ] . ";
+		$query .= "<$dataset> vivo:relatedBy ?authorship . " ;
+		$query .= "?authorship vivo:relates ?uri . ";
+		$query .= "OPTIONAL { ?authorship vivo:rank ?rank . } ";
 		$query .= "?uri a foaf:Person . ";
 		$query .= "?uri rdfs:label ?label . ";
 		$query .= "BIND(str(?label) AS ?name) } ";
+		$query .= "ORDER BY ?rank ";
 		return $this->sparqlSelect($query);
 	}
 
