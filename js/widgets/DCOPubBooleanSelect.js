@@ -15,7 +15,7 @@ edu.rpi.tw.sesf.s2s.widgets.DCOPubBooleanSelect = function(panel)
 {
     this.panel = panel;
     var input = panel.getInput();
-    var select = jQuery("<input id=\"member_check\" type=\"checkbox\" value=\"members\" checked=\"checked\">List DCO Publications Only</input>");
+    var select = jQuery("<input id=\"member_check\" type=\"checkbox\" value=\"members\" checked=\"checked\">Only show contributions to the DCO</input>");
     this.div = jQuery("<div class=\"facet-content\" style=\"width:100%\"></div>");
     panel.setInputData(input.getId(), function() {
 	var arr = [];

@@ -352,7 +352,7 @@ class DCO_Publications_S2SConfig extends S2SConfig {
 			case "dcoPubs":
 				if( $constraint_value == "yes" )
 				{
-				    $body .= "?publication dco:isDCOPublication ?isit ." ;
+				    $body .= "?publication dco:isContributionToDCO ?isit ." ;
 				    $body .= "FILTER (lcase(str(?isit)) = \"yes\") ." ;
 				}
 				break;
